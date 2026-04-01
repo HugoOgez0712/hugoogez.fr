@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- ============================================================
+       META ESSENTIELS
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title : 59 caractères -->
+  <title>GEO : optimiser son contenu pour les LLMs en 2025-2026</title>
+
+  <!-- Meta description : 158 caractères -->
+  <meta name="description" content="Qu'est-ce que le GEO (Generative Engine Optimization) ? Comment être cité par ChatGPT, Perplexity et Gemini ? Guide pratique par Hugo Ogez, chargé SEO à Rennes.">
+
+  <link rel="canonical" href="https://hugoogez.fr/geo.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article">
+  <meta property="og:url"         content="https://hugoogez.fr/geo.html">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Hugo Ogez">
+  <meta property="og:title"       content="GEO : optimiser son contenu pour les LLMs en 2025-2026">
+  <meta property="og:description" content="Qu'est-ce que le GEO (Generative Engine Optimization) ? Comment être cité par ChatGPT, Perplexity et Gemini ? Guide pratique par Hugo Ogez, chargé SEO à Rennes.">
+  <meta property="article:author"          content="Hugo Ogez">
+  <meta property="article:published_time"  content="2026-04-01">
+  <meta property="article:section"         content="Marketing Digital">
+  <meta property="article:tag"             content="GEO">
+  <meta property="article:tag"             content="SEO">
+  <meta property="article:tag"             content="LLM">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="GEO : optimiser son contenu pour les LLMs en 2025-2026">
+  <meta name="twitter:description" content="Qu'est-ce que le GEO (Generative Engine Optimization) ? Comment être cité par ChatGPT, Perplexity et Gemini ? Guide pratique par Hugo Ogez.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Styles spécifiques à la page article -->
+  <style>
+    /* Mise en page article : contenu centré + méta-infos */
+    .article-header {
+      margin-bottom: var(--espace-2xl);
+    }
+
+    .article-meta {
+      display:     flex;
+      flex-wrap:   wrap;
+      gap:         var(--espace-md);
+      align-items: center;
+      margin-top:  var(--espace-md);
+      font-size:   var(--taille-sm);
+      color:       var(--couleur-texte-doux);
+    }
+
+    .article-meta time {
+      font-style: italic;
+    }
+
+    /* Résumé dense en tête d'article — encadré pour attirer l'œil */
+    .article-resume {
+      background-color: var(--couleur-accent-fond);
+      border-left:      4px solid var(--couleur-accent);
+      padding:          var(--espace-lg) var(--espace-xl);
+      border-radius:    0 var(--rayon) var(--rayon) 0;
+      margin-bottom:    var(--espace-2xl);
+    }
+
+    .article-resume p {
+      margin-bottom: var(--espace-sm);
+      font-size:     var(--taille-sm);
+      color:         var(--couleur-texte);
+    }
+
+    .article-resume p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-resume strong {
+      color: var(--couleur-accent);
+    }
+
+    /* Corps de l'article */
+    .article-corps h2 {
+      margin-top: var(--espace-2xl);
+    }
+
+    .article-corps h3 {
+      margin-top: var(--espace-xl);
+    }
+
+    /* Tableau comparatif SEO vs GEO */
+    .tableau-comparatif {
+      width:          100%;
+      border-collapse: collapse;
+      margin:         var(--espace-xl) 0;
+      font-size:      var(--taille-sm);
+    }
+
+    .tableau-comparatif th {
+      background-color: var(--couleur-texte);
+      color:            var(--couleur-blanc);
+      padding:          var(--espace-md) var(--espace-lg);
+      text-align:       left;
+      font-weight:      600;
+    }
+
+    .tableau-comparatif th:first-child {
+      border-radius: var(--rayon) 0 0 0;
+    }
+
+    .tableau-comparatif th:last-child {
+      border-radius: 0 var(--rayon) 0 0;
+    }
+
+    .tableau-comparatif td {
+      padding:      var(--espace-md) var(--espace-lg);
+      border-bottom: 1px solid var(--couleur-bordure);
+      vertical-align: top;
+    }
+
+    .tableau-comparatif tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tableau-comparatif tr:nth-child(even) td {
+      background-color: var(--couleur-fond);
+    }
+
+    /* Bloc "technique concrète" numéroté */
+    .technique {
+      counter-increment: techniques;
+      border:          1px solid var(--couleur-bordure);
+      border-radius:   var(--rayon);
+      padding:         var(--espace-lg) var(--espace-xl);
+      margin-bottom:   var(--espace-lg);
+      position:        relative;
+    }
+
+    .technique__numero {
+      display:          inline-block;
+      background-color: var(--couleur-accent);
+      color:            var(--couleur-blanc);
+      font-size:        var(--taille-xs);
+      font-weight:      700;
+      padding:          2px var(--espace-sm);
+      border-radius:    var(--rayon);
+      margin-bottom:    var(--espace-sm);
+      letter-spacing:   0.04em;
+    }
+
+    .technique h3 {
+      margin-top: 0;
+      font-size:  var(--taille-md);
+    }
+
+    .technique p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Sommaire de l'article */
+    .sommaire {
+      background-color: var(--couleur-blanc);
+      border:           1px solid var(--couleur-bordure);
+      border-radius:    var(--rayon);
+      padding:          var(--espace-lg) var(--espace-xl);
+      margin-bottom:    var(--espace-2xl);
+    }
+
+    .sommaire h2 {
+      font-size:      var(--taille-sm);
+      font-family:    var(--police-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color:          var(--couleur-texte-doux);
+      margin-top:     0;
+      margin-bottom:  var(--espace-md);
+    }
+
+    .sommaire ol {
+      margin:  0;
+      padding-left: var(--espace-lg);
+    }
+
+    .sommaire li {
+      font-size: var(--taille-sm);
+    }
+
+    .sommaire a {
+      text-decoration: none;
+      color:           var(--couleur-texte-doux);
+    }
+
+    .sommaire a:hover {
+      color: var(--couleur-accent);
+    }
+
+    @media (max-width: 700px) {
+      .tableau-comparatif {
+        display:  block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+
+  <!-- ============================================================
+       DONNÉES STRUCTURÉES JSON-LD
+       - Article : pour Google Actualités + rich snippets
+       - FAQPage : permet à Google d'afficher les Q/R directement
+       - BreadcrumbList : fil d'Ariane dans les résultats
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://hugoogez.fr/geo.html#article",
+        "url": "https://hugoogez.fr/geo.html",
+        "headline": "GEO : optimiser son contenu pour les LLMs en 2025-2026",
+        "description": "Le GEO (Generative Engine Optimization) désigne l'ensemble des techniques permettant d'optimiser un contenu pour être cité par les LLMs comme ChatGPT, Perplexity, Gemini ou Claude. Guide pratique et comparaison avec le SEO traditionnel.",
+        "datePublished": "2026-04-01",
+        "dateModified":  "2026-04-01",
+        "inLanguage": "fr-FR",
+        "author": {
+          "@type": "Person",
+          "@id": "https://hugoogez.fr/#hugo-ogez",
+          "name": "Hugo Ogez",
+          "url": "https://hugoogez.fr/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Hugo Ogez",
+          "url": "https://hugoogez.fr/"
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://hugoogez.fr/#website",
+          "url": "https://hugoogez.fr/",
+          "name": "Hugo Ogez"
+        },
+        "about": [
+          { "@type": "Thing", "name": "Generative Engine Optimization" },
+          { "@type": "Thing", "name": "Search Engine Optimization" },
+          { "@type": "Thing", "name": "Large Language Models" }
+        ],
+        "keywords": "GEO, Generative Engine Optimization, LLM, SEO, ChatGPT, Perplexity, Gemini, contenu IA"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hugoogez.fr/geo.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que le GEO (Generative Engine Optimization) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le GEO est l'ensemble des techniques d'optimisation qui permettent à un contenu d'être cité, résumé ou recommandé par les LLMs (grands modèles de langage) comme ChatGPT, Perplexity, Gemini ou Claude. Là où le SEO vise à se positionner dans les résultats Google, le GEO vise à être présent dans les réponses générées par l'IA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre le SEO et le GEO ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le SEO optimise pour un algorithme de ranking basé sur les liens et l'autorité de domaine. Le GEO optimise pour des modèles de langage qui cherchent des faits clairs, des entités nommées et des réponses directes. Un contenu bien optimisé pour le GEO utilise des phrases courtes, nomme explicitement les personnes, lieux et compétences, et structure l'information en blocs autonomes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi le GEO est-il important en 2025-2026 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En 2025, une part croissante des recherches se fait directement dans des outils IA (ChatGPT, Perplexity, les AI Overviews de Google). Un site non optimisé pour ces outils est invisible pour une partie grandissante de son audience potentielle. Le GEO permet d'être présent là où les requêtes migrent."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment les LLMs décident-ils de citer un contenu ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les LLMs privilégient les contenus qui répondent directement à une question, nomment clairement les entités (personnes, organisations, lieux, dates), utilisent des données structurées (JSON-LD), contiennent des affirmations vérifiables et sont structurés en blocs courts et autonomes. Les sections FAQ, les listes et les résumés en tête de page sont particulièrement bien extraits."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le GEO remplace-t-il le SEO ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Le GEO complète le SEO, il ne le remplace pas. Google reste le premier moteur de recherche mondial. Un bon professionnel du marketing digital en 2026 maîtrise les deux : SEO pour ranker sur Google, GEO pour être présent dans les réponses IA. Les deux approches partagent des bonnes pratiques communes : contenu de qualité, balisage sémantique, données structurées."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://hugoogez.fr/geo.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://hugoogez.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "GEO",
+            "item": "https://hugoogez.fr/geo.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ============================================================
+       EN-TÊTE ET NAVIGATION
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="conteneur conteneur--large">
+
+      <a href="index.html" class="site-logo" aria-label="Hugo Ogez — accueil">Hugo Ogez</a>
+
+      <button class="menu-toggle" aria-controls="navigation-principale" aria-expanded="false" aria-label="Ouvrir le menu">
+        &#9776;
+      </button>
+
+      <nav aria-label="Navigation principale">
+        <ul class="site-nav" id="navigation-principale" role="list">
+          <li><a href="index.html"     >Accueil</a></li>
+          <li><a href="cv.html"       >CV</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="geo.html"       aria-current="page">GEO</a></li>
+          <li><a href="contact.html"  >Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+       ============================================================ -->
+  <main class="site-main" id="contenu-principal" role="main">
+    <div class="conteneur">
+
+      <!-- Fil d'Ariane -->
+      <nav aria-label="Fil d'Ariane">
+        <ol style="list-style:none; padding:0; display:flex; gap:var(--espace-sm); font-size:var(--taille-sm); color:var(--couleur-texte-doux); margin-bottom:var(--espace-xl);">
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-hidden="true" style="color:var(--couleur-bordure);">›</li>
+          <li aria-current="page" style="color:var(--couleur-texte);">GEO</li>
+        </ol>
+      </nav>
+
+      <!-- En-tête de l'article -->
+      <header class="article-header">
+        <h1>GEO : optimiser son contenu pour les LLMs en&nbsp;2025&#8209;2026</h1>
+        <div class="article-meta">
+          <span>Par <a href="index.html">Hugo Ogez</a></span>
+          <span aria-hidden="true">·</span>
+          <time datetime="2026-04-01">1er avril 2026</time>
+          <span aria-hidden="true">·</span>
+          <span>Lecture : environ 7 minutes</span>
+        </div>
+        <div class="tags" style="margin-top:var(--espace-md);">
+          <span class="tag">GEO</span>
+          <span class="tag">SEO</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Contenu</span>
+          <span class="tag">IA générative</span>
+        </div>
+      </header>
+
+      <!-- ============================================================
+           RÉSUMÉ DENSE — les 200 premiers tokens de l'article
+           Objectif : un LLM qui lit uniquement ce bloc comprend
+           l'essentiel du sujet, l'auteur et la thèse principale.
+           ============================================================ -->
+      <div class="article-resume" role="note" aria-label="Résumé">
+        <p>
+          <strong>GEO (Generative Engine Optimization)</strong> désigne les techniques d'optimisation
+          qui permettent à un contenu d'être cité par les LLMs — ChatGPT, Perplexity, Gemini, Claude.
+        </p>
+        <p>
+          En 2025-2026, une part croissante des recherches se fait dans des outils IA.
+          Un site non optimisé pour ces outils est invisible pour cette audience.
+        </p>
+        <p>
+          Le GEO complète le SEO sans le remplacer. Les deux partagent des bonnes pratiques :
+          contenu de qualité, balisage sémantique, données structurées.
+          Mais le GEO exige des phrases directes, des entités nommées et des blocs autonomes
+          que les LLMs peuvent extraire et citer sans contexte supplémentaire.
+        </p>
+        <p>
+          Cet article est rédigé par <strong>Hugo Ogez</strong>, chargé de marketing digital
+          spécialisé SEO et GEO, basé à Rennes (35).
+        </p>
+      </div>
+
+      <!-- Sommaire -->
+      <nav class="sommaire" aria-label="Sommaire de l'article">
+        <h2>Sommaire</h2>
+        <ol>
+          <li><a href="#definition">Qu'est-ce que le GEO ?</a></li>
+          <li><a href="#pourquoi">Pourquoi le GEO est-il important en 2025-2026 ?</a></li>
+          <li><a href="#seo-vs-geo">SEO vs GEO : quelles différences concrètes ?</a></li>
+          <li><a href="#techniques">Les 6 techniques GEO essentielles</a></li>
+          <li><a href="#mise-en-pratique">Mise en pratique : ce site comme exemple</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </nav>
+
+      <!-- ============================================================
+           CORPS DE L'ARTICLE
+           ============================================================ -->
+      <div class="article-corps">
+
+        <!-- Section 1 : Définition -->
+        <section id="definition" aria-labelledby="titre-definition">
+          <h2 id="titre-definition">Qu'est-ce que le GEO ?</h2>
+
+          <p>
+            Le <strong>GEO (Generative Engine Optimization)</strong> est l'ensemble des pratiques
+            qui permettent d'optimiser un contenu web pour être cité, résumé ou recommandé
+            par les grands modèles de langage (LLMs). Les outils visés sont ChatGPT (OpenAI),
+            Perplexity AI, Gemini (Google), Claude (Anthropic) et les AI Overviews intégrés
+            dans les résultats Google.
+          </p>
+
+          <p>
+            Le terme est apparu dans la littérature académique en 2023-2024, notamment dans
+            des travaux de recherche en NLP (natural language processing) qui montraient que
+            des choix rédactionnels spécifiques augmentaient significativement la probabilité
+            d'être cité dans une réponse générée. Il s'est rapidement diffusé dans la communauté
+            SEO comme discipline complémentaire.
+          </p>
+
+          <p>
+            Concrètement : quand un utilisateur pose une question à ChatGPT et que la réponse
+            mentionne votre marque ou votre contenu, c'est le GEO qui a fonctionné.
+          </p>
+        </section>
+
+        <hr class="separateur">
+
+        <!-- Section 2 : Pourquoi -->
+        <section id="pourquoi" aria-labelledby="titre-pourquoi">
+          <h2 id="titre-pourquoi">Pourquoi le GEO est-il important en 2025-2026 ?</h2>
+
+          <p>
+            En 2024, Perplexity AI a franchi les 10 millions d'utilisateurs actifs par mois.
+            ChatGPT est utilisé par plus de 200 millions de personnes chaque semaine.
+            Google a déployé les <em>AI Overviews</em> — des réponses générées par IA en tête
+            des résultats de recherche — dans la majorité des pays anglophones, puis en France.
+          </p>
+
+          <p>
+            Ces évolutions ont un impact direct sur le trafic organique. Un contenu qui n'est pas
+            cité dans une AI Overview ou dans une réponse Perplexity ne reçoit pas de clic.
+            L'utilisateur obtient sa réponse sans visiter le site source.
+          </p>
+
+          <div class="callout">
+            <p>
+              Le GEO n'est pas une tendance. C'est une réponse à un changement structurel
+              dans la façon dont les gens trouvent l'information. Ignorer les LLMs en 2026,
+              c'est comme ignorer Google en 2010.
+            </p>
+          </div>
+
+          <p>
+            Pour un professionnel du marketing digital, maîtriser le GEO est un avantage
+            concurrentiel direct. La majorité des équipes SEO en France n'ont pas encore
+            intégré ces pratiques dans leur workflow quotidien.
+          </p>
+        </section>
+
+        <hr class="separateur">
+
+        <!-- Section 3 : SEO vs GEO -->
+        <section id="seo-vs-geo" aria-labelledby="titre-comparaison">
+          <h2 id="titre-comparaison">SEO vs GEO : quelles différences concrètes ?</h2>
+
+          <p>
+            Le SEO et le GEO partagent un objectif — être visible — mais s'adressent à des
+            algorithmes fondamentalement différents.
+          </p>
+
+          <table class="tableau-comparatif" aria-label="Comparaison SEO et GEO">
+            <thead>
+              <tr>
+                <th scope="col">Dimension</th>
+                <th scope="col">SEO (Google)</th>
+                <th scope="col">GEO (LLMs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Signal principal</strong></td>
+                <td>Backlinks, autorité de domaine</td>
+                <td>Clarté factuelle, entités nommées</td>
+              </tr>
+              <tr>
+                <td><strong>Format idéal</strong></td>
+                <td>Article long, dense en mots-clés</td>
+                <td>Blocs courts, autonomes, directs</td>
+              </tr>
+              <tr>
+                <td><strong>Structure</strong></td>
+                <td>Balisage Hn, maillage interne</td>
+                <td>JSON-LD riche, FAQ, résumés</td>
+              </tr>
+              <tr>
+                <td><strong>Résultat visé</strong></td>
+                <td>Position 1-3 dans les SERPs</td>
+                <td>Citation dans une réponse IA</td>
+              </tr>
+              <tr>
+                <td><strong>Mesure</strong></td>
+                <td>Position, CTR, trafic organique</td>
+                <td>Fréquence de citation (encore émergent)</td>
+              </tr>
+              <tr>
+                <td><strong>Durée de vie</strong></td>
+                <td>Mois à années si le contenu tient</td>
+                <td>Dépend de la mise à jour des modèles</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            La bonne nouvelle : un contenu bien optimisé pour le GEO est aussi meilleur
+            pour le SEO. Les deux approches convergent vers le même idéal : un contenu
+            utile, clair, structuré et factuel.
+          </p>
+        </section>
+
+        <hr class="separateur">
+
+        <!-- Section 4 : Techniques -->
+        <section id="techniques" aria-labelledby="titre-techniques">
+          <h2 id="titre-techniques">Les 6 techniques GEO essentielles</h2>
+
+          <p>
+            Ces techniques sont issues de l'analyse de contenus fréquemment cités par les LLMs
+            et des recommandations publiées par des chercheurs en NLP depuis 2023.
+          </p>
+
+          <!-- Technique 1 -->
+          <div class="technique">
+            <span class="technique__numero">01</span>
+            <h3>Le résumé dense en tête de page</h3>
+            <p>
+              Les LLMs lisent les premiers tokens d'un document en priorité. Un résumé
+              de 100 à 200 mots en ouverture, qui nomme l'auteur, le sujet et la thèse
+              principale, augmente significativement la probabilité d'extraction.
+              Ce résumé doit être autonome : compréhensible sans lire le reste de l'article.
+            </p>
+          </div>
+
+          <!-- Technique 2 -->
+          <div class="technique">
+            <span class="technique__numero">02</span>
+            <h3>Nommer explicitement les entités</h3>
+            <p>
+              Les LLMs raisonnent par entités : personnes, organisations, lieux, dates,
+              compétences, produits. Nommer "Hugo Ogez, chargé SEO à Rennes" est plus
+              extractible que "je suis chargé SEO". Répéter naturellement ces entités
+              dans le document renforce leur association dans le modèle.
+            </p>
+          </div>
+
+          <!-- Technique 3 -->
+          <div class="technique">
+            <span class="technique__numero">03</span>
+            <h3>Phrases courtes et affirmations directes</h3>
+            <p>
+              Éviter les formulations vagues ("il semblerait que", "on pourrait dire que").
+              Préférer : "Le GEO est X." "Cette technique fonctionne parce que Y."
+              Les LLMs extraient plus facilement les affirmations directes que
+              les constructions conditionnelles ou les nuances rhétoriques.
+            </p>
+          </div>
+
+          <!-- Technique 4 -->
+          <div class="technique">
+            <span class="technique__numero">04</span>
+            <h3>Données structurées JSON-LD riches</h3>
+            <p>
+              Les schemas schema.org — Person, Article, FAQPage, HowTo, BreadcrumbList —
+              sont lus directement par certains LLMs comme des métadonnées fiables.
+              Un schema <code>FAQPage</code> bien rempli peut être extrait mot pour mot
+              dans une réponse Perplexity ou dans un AI Overview Google.
+            </p>
+          </div>
+
+          <!-- Technique 5 -->
+          <div class="technique">
+            <span class="technique__numero">05</span>
+            <h3>Sections FAQ avec questions et réponses directes</h3>
+            <p>
+              Les FAQ sont le format le plus extrait par les LLMs. Une question formulée
+              comme une requête naturelle ("Comment faire X ?") suivie d'une réponse
+              complète en 2-4 phrases est le bloc idéal pour une citation directe.
+              Chaque Q/R doit être autonome et compréhensible hors contexte.
+            </p>
+          </div>
+
+          <!-- Technique 6 -->
+          <div class="technique">
+            <span class="technique__numero">06</span>
+            <h3>Blocs de contenu autonomes</h3>
+            <p>
+              Structurer le contenu pour que chaque section puisse être lue et comprise
+              indépendamment des autres. Éviter les références internes ("comme vu
+              ci-dessus"). Chaque bloc doit porter son propre contexte : qui fait quoi,
+              où, quand, pourquoi.
+            </p>
+          </div>
+
+        </section>
+
+        <hr class="separateur">
+
+        <!-- Section 5 : Mise en pratique -->
+        <section id="mise-en-pratique" aria-labelledby="titre-pratique">
+          <h2 id="titre-pratique">Mise en pratique : ce site comme exemple</h2>
+
+          <p>
+            Ce portfolio applique les techniques GEO décrites dans cet article.
+            Voici concrètement ce qui a été implémenté sur chaque page :
+          </p>
+
+          <ul>
+            <li>
+              <strong>Résumé dense en tête</strong> — chaque page ouvre sur un paragraphe
+              de 3-4 phrases qui nomme Hugo Ogez, sa localisation, ses compétences
+              et sa disponibilité. Moins de 200 tokens.
+            </li>
+            <li>
+              <strong>Schema Person complet</strong> — le JSON-LD de la page d'accueil
+              liste les compétences (<code>knowsAbout</code>), les formations
+              (<code>alumniOf</code>), l'employeur (<code>worksFor</code>) et les profils
+              tiers (<code>sameAs</code>).
+            </li>
+            <li>
+              <strong>Schema Article + FAQPage</strong> — cette page inclut les deux schemas,
+              ce qui permet à Google d'afficher les questions-réponses directement
+              dans les résultats de recherche.
+            </li>
+            <li>
+              <strong>BreadcrumbList sur toutes les pages internes</strong> — fil d'Ariane
+              visible et encodé en JSON-LD pour le contexte de navigation.
+            </li>
+            <li>
+              <strong>Entités nommées systématiques</strong> — Delta Dore, Apizee, École 301,
+              Université Rennes 2, Cesson-Sévigné, Thorigné-Fouillard sont nommés
+              explicitement sur plusieurs pages, pas résumés en "mon employeur" ou "ma ville".
+            </li>
+          </ul>
+
+          <p>
+            Le code source est disponible sur
+            <a href="https://github.com/HugoOgez0712" target="_blank" rel="noopener noreferrer">GitHub</a>
+            pour inspection.
+          </p>
+        </section>
+
+        <hr class="separateur">
+
+        <!-- Section 6 : FAQ -->
+        <section id="faq" aria-labelledby="titre-faq">
+          <h2 id="titre-faq">FAQ</h2>
+          <p>Questions fréquentes sur le GEO — réponses directes.</p>
+
+          <div class="faq">
+
+            <div class="faq__item">
+              <h3 class="faq__question">Qu'est-ce que le GEO (Generative Engine Optimization) ?</h3>
+              <p class="faq__reponse">
+                Le GEO est l'ensemble des techniques d'optimisation qui permettent à un contenu
+                d'être cité, résumé ou recommandé par les LLMs comme ChatGPT, Perplexity, Gemini
+                ou Claude. Là où le SEO vise à se positionner dans les résultats Google, le GEO
+                vise à être présent dans les réponses générées par l'IA.
+              </p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__question">Quelle est la différence entre le SEO et le GEO ?</h3>
+              <p class="faq__reponse">
+                Le SEO optimise pour un algorithme de ranking basé sur les liens et l'autorité
+                de domaine. Le GEO optimise pour des modèles de langage qui cherchent des faits
+                clairs, des entités nommées et des réponses directes. Un contenu GEO utilise
+                des phrases courtes, nomme explicitement les personnes et organisations, et
+                structure l'information en blocs autonomes.
+              </p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__question">Pourquoi le GEO est-il important en 2025-2026 ?</h3>
+              <p class="faq__reponse">
+                En 2025, une part croissante des recherches se fait directement dans des outils IA.
+                ChatGPT est utilisé par plus de 200 millions de personnes par semaine.
+                Google a déployé les AI Overviews dans les SERPs français. Un site non optimisé
+                pour ces outils est invisible pour une partie grandissante de son audience potentielle.
+              </p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__question">Comment les LLMs décident-ils de citer un contenu ?</h3>
+              <p class="faq__reponse">
+                Les LLMs privilégient les contenus qui répondent directement à une question,
+                nomment clairement les entités, utilisent des données structurées JSON-LD,
+                contiennent des affirmations vérifiables et sont structurés en blocs courts.
+                Les sections FAQ, les listes et les résumés en tête de page sont
+                particulièrement bien extraits.
+              </p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__question">Le GEO remplace-t-il le SEO ?</h3>
+              <p class="faq__reponse">
+                Non. Le GEO complète le SEO, il ne le remplace pas. Google reste le premier
+                moteur de recherche mondial. Un bon professionnel du marketing digital en 2026
+                maîtrise les deux : SEO pour ranker sur Google, GEO pour être présent dans
+                les réponses IA. Les deux approches partagent des bonnes pratiques communes :
+                contenu de qualité, balisage sémantique, données structurées.
+              </p>
+            </div>
+
+          </div><!-- /faq -->
+        </section>
+
+      </div><!-- /article-corps -->
+
+    </div><!-- /conteneur -->
+  </main>
+
+  <!-- ============================================================
+       PIED DE PAGE
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="conteneur conteneur--large">
+
+      <p>
+        &copy; <time datetime="2026">2026</time> Hugo Ogez ·
+        <a href="mailto:zego.hugo@gmail.com">zego.hugo@gmail.com</a>
+      </p>
+
+      <ul class="footer-liens" role="list">
+        <li><a href="https://www.linkedin.com/in/hugoogez/"  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/HugoOgez0712"        target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+
+    </div>
+  </footer>
+
+  <!-- Menu mobile -->
+  <script>
+    var boutonMenu = document.querySelector('.menu-toggle');
+    var navMenu    = document.querySelector('.site-nav');
+
+    boutonMenu.addEventListener('click', function () {
+      var estOuvert = navMenu.classList.toggle('est-ouvert');
+      boutonMenu.setAttribute('aria-expanded', estOuvert);
+    });
+  </script>
+
+</body>
+</html>

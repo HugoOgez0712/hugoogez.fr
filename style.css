@@ -1,0 +1,614 @@
+/* ============================================================
+   style.css — Hugo Ogez Portfolio
+   Feuille de styles commune à toutes les pages
+   Mobile-first, CSS custom properties, zéro framework
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. VARIABLES (Custom Properties)
+   Modifier ces valeurs suffit pour changer tout le design
+   ------------------------------------------------------------ */
+
+:root {
+  /* Palette */
+  --couleur-fond:        #f9f7f4;   /* blanc cassé chaud — moins agressif que #fff */
+  --couleur-texte:       #1a1a1a;   /* noir doux — meilleur contraste que #000 pur */
+  --couleur-texte-doux:  #555555;   /* gris moyen — pour le texte secondaire */
+  --couleur-accent:      #c0392b;   /* rouge brique — couleur unique du site */
+  --couleur-accent-fond: #fdf1f0;   /* rouge très pâle — fond des éléments mis en avant */
+  --couleur-bordure:     #e0ddd8;   /* gris chaud — séparateurs, bordures */
+  --couleur-blanc:       #ffffff;
+
+  /* Typographie — polices système uniquement, zéro Google Fonts */
+  --police-serif:   Georgia, 'Times New Roman', serif;
+  --police-sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --police-mono:    'Courier New', Courier, monospace;
+
+  /* Tailles de police (échelle modulaire × 1.25) */
+  --taille-xs:   0.75rem;   /*  12px */
+  --taille-sm:   0.875rem;  /*  14px */
+  --taille-base: 1rem;      /*  16px */
+  --taille-md:   1.125rem;  /*  18px */
+  --taille-lg:   1.25rem;   /*  20px */
+  --taille-xl:   1.5rem;    /*  24px */
+  --taille-2xl:  1.875rem;  /*  30px */
+  --taille-3xl:  2.25rem;   /*  36px */
+
+  /* Espacements */
+  --espace-xs:  0.25rem;  /*  4px */
+  --espace-sm:  0.5rem;   /*  8px */
+  --espace-md:  1rem;     /* 16px */
+  --espace-lg:  1.5rem;   /* 24px */
+  --espace-xl:  2rem;     /* 32px */
+  --espace-2xl: 3rem;     /* 48px */
+  --espace-3xl: 4rem;     /* 64px */
+
+  /* Mise en page */
+  --largeur-max:      800px;  /* colonne de contenu — étroite pour confort de lecture */
+  --largeur-max-wide: 1100px; /* pour les sections pleine largeur */
+  --rayon:            4px;    /* arrondi des boutons et cadres */
+
+  /* Transitions */
+  --transition: 0.2s ease;
+}
+
+
+/* ------------------------------------------------------------
+   2. RESET MINIMAL
+   On remet à zéro uniquement ce qui nous gêne, pas tout
+   ------------------------------------------------------------ */
+
+*, *::before, *::after {
+  box-sizing: border-box; /* le padding ne déborde plus du conteneur */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;          /* respecte les préférences de l'utilisateur */
+  scroll-behavior: smooth;  /* défilement fluide pour les ancres */
+  -webkit-text-size-adjust: 100%; /* empêche iOS de zoomer sur les inputs */
+}
+
+body {
+  font-family:      var(--police-sans);
+  font-size:        var(--taille-base);
+  line-height:      1.7;
+  color:            var(--couleur-texte);
+  background-color: var(--couleur-fond);
+  -webkit-font-smoothing:  antialiased; /* lissage police sur WebKit */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--couleur-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px; /* espace entre texte et soulignement */
+  transition: opacity var(--transition);
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+ul, ol {
+  padding-left: var(--espace-lg);
+}
+
+/* Améliore la lisibilité des listes dans le contenu */
+li + li {
+  margin-top: var(--espace-xs);
+}
+
+
+/* ------------------------------------------------------------
+   3. TYPOGRAPHIE
+   ------------------------------------------------------------ */
+
+h1, h2, h3, h4 {
+  font-family:  var(--police-serif);
+  line-height:  1.3;
+  color:        var(--couleur-texte);
+  margin-bottom: var(--espace-md);
+}
+
+h1 { font-size: var(--taille-2xl); }
+h2 { font-size: var(--taille-xl);  }
+h3 { font-size: var(--taille-lg);  }
+h4 { font-size: var(--taille-md);  }
+
+/* Hiérarchie visuelle : les titres de section ont plus d'espace au-dessus */
+h2 { margin-top: var(--espace-2xl); }
+h3 { margin-top: var(--espace-xl);  }
+
+p {
+  margin-bottom: var(--espace-md);
+  max-width: 68ch; /* ~68 caractères par ligne — confort de lecture optimal */
+}
+
+/* Le dernier paragraphe d'un bloc n'a pas de marge en bas */
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--couleur-texte);
+}
+
+em {
+  font-style: italic;
+  color: var(--couleur-texte-doux);
+}
+
+/* Texte de mise en avant (chiffres, stats, citations courtes) */
+.lead {
+  font-size:   var(--taille-md);
+  font-family: var(--police-serif);
+  color:       var(--couleur-texte-doux);
+  font-style:  italic;
+  margin-bottom: var(--espace-lg);
+}
+
+/* Petit texte (dates, mentions légales, etc.) */
+small, .texte-petit {
+  font-size: var(--taille-sm);
+  color:     var(--couleur-texte-doux);
+}
+
+/* Inline code */
+code {
+  font-family:      var(--police-mono);
+  font-size:        var(--taille-sm);
+  background-color: var(--couleur-accent-fond);
+  color:            var(--couleur-accent);
+  padding:          var(--espace-xs) var(--espace-sm);
+  border-radius:    var(--rayon);
+}
+
+
+/* ------------------------------------------------------------
+   4. MISE EN PAGE — CONTENEUR CENTRAL
+   ------------------------------------------------------------ */
+
+/* Conteneur standard — centré, avec marges latérales sur mobile */
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin-left:  auto;
+  margin-right: auto;
+  padding-left:  var(--espace-lg);
+  padding-right: var(--espace-lg);
+}
+
+/* Variante large pour les sections d'intro et nav */
+.conteneur--large {
+  max-width: var(--largeur-max-wide);
+}
+
+
+/* ------------------------------------------------------------
+   5. EN-TÊTE (HEADER) ET NAVIGATION
+   ------------------------------------------------------------ */
+
+.site-header {
+  border-bottom: 1px solid var(--couleur-bordure);
+  background-color: var(--couleur-blanc);
+  position: sticky;   /* reste visible au scroll */
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .conteneur {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding-top:    var(--espace-md);
+  padding-bottom: var(--espace-md);
+  max-width: var(--largeur-max-wide);
+}
+
+/* Logo / nom du site */
+.site-logo {
+  font-family:     var(--police-serif);
+  font-size:       var(--taille-lg);
+  font-weight:     normal;
+  color:           var(--couleur-texte);
+  text-decoration: none;
+  letter-spacing:  0.01em;
+}
+
+.site-logo:hover {
+  color:   var(--couleur-accent);
+  opacity: 1; /* annule l'opacité générique des liens */
+}
+
+/* Navigation principale */
+.site-nav {
+  display: flex;
+  gap: var(--espace-xl);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav a {
+  font-size:       var(--taille-sm);
+  font-weight:     500;
+  color:           var(--couleur-texte-doux);
+  text-decoration: none;
+  letter-spacing:  0.04em;
+  text-transform:  uppercase;
+  transition:      color var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color:   var(--couleur-accent);
+  opacity: 1;
+}
+
+/* Indicateur de page active */
+.site-nav a[aria-current="page"] {
+  border-bottom: 2px solid var(--couleur-accent);
+  padding-bottom: 2px;
+}
+
+/* Bouton menu hamburger — masqué sur desktop */
+.menu-toggle {
+  display:    none;
+  background: none;
+  border:     none;
+  cursor:     pointer;
+  padding:    var(--espace-sm);
+  color:      var(--couleur-texte);
+  font-size:  var(--taille-xl);
+  line-height: 1;
+}
+
+
+/* ------------------------------------------------------------
+   6. CONTENU PRINCIPAL
+   ------------------------------------------------------------ */
+
+.site-main {
+  padding-top:    var(--espace-2xl);
+  padding-bottom: var(--espace-3xl);
+}
+
+/* Section générique avec séparateur */
+.section {
+  margin-bottom: var(--espace-2xl);
+}
+
+/* Ligne de séparation entre sections */
+.separateur {
+  border: none;
+  border-top: 1px solid var(--couleur-bordure);
+  margin: var(--espace-2xl) 0;
+}
+
+
+/* ------------------------------------------------------------
+   7. COMPOSANTS RÉUTILISABLES
+   ------------------------------------------------------------ */
+
+/* --- Étiquette / Tag (compétences, outils) --- */
+.tag {
+  display:          inline-block;
+  font-size:        var(--taille-xs);
+  font-weight:      600;
+  text-transform:   uppercase;
+  letter-spacing:   0.06em;
+  color:            var(--couleur-accent);
+  background-color: var(--couleur-accent-fond);
+  border:           1px solid var(--couleur-accent);
+  padding:          var(--espace-xs) var(--espace-sm);
+  border-radius:    var(--rayon);
+}
+
+/* Groupe de tags */
+.tags {
+  display:    flex;
+  flex-wrap:  wrap;
+  gap:        var(--espace-sm);
+  margin-top: var(--espace-md);
+}
+
+/* --- Carte (fiche projet, expérience) --- */
+.carte {
+  background-color: var(--couleur-blanc);
+  border:           1px solid var(--couleur-bordure);
+  border-radius:    var(--rayon);
+  padding:          var(--espace-xl);
+  margin-bottom:    var(--espace-lg);
+}
+
+.carte__date {
+  font-size:  var(--taille-sm);
+  color:      var(--couleur-texte-doux);
+  font-style: italic;
+  margin-bottom: var(--espace-sm);
+}
+
+.carte__titre {
+  font-family:   var(--police-serif);
+  font-size:     var(--taille-lg);
+  margin-bottom: var(--espace-sm);
+  margin-top:    0;
+}
+
+.carte__lieu {
+  font-size:     var(--taille-sm);
+  font-weight:   600;
+  color:         var(--couleur-accent);
+  margin-bottom: var(--espace-md);
+}
+
+/* --- Bouton --- */
+.bouton {
+  display:          inline-block;
+  padding:          var(--espace-md) var(--espace-xl);
+  background-color: var(--couleur-accent);
+  color:            var(--couleur-blanc);
+  text-decoration:  none;
+  font-size:        var(--taille-sm);
+  font-weight:      600;
+  letter-spacing:   0.04em;
+  text-transform:   uppercase;
+  border-radius:    var(--rayon);
+  transition:       opacity var(--transition);
+  border:           none;
+  cursor:           pointer;
+}
+
+.bouton:hover {
+  opacity: 0.85;
+  color: var(--couleur-blanc);
+}
+
+/* Variante secondaire (contour) */
+.bouton--secondaire {
+  background-color: transparent;
+  color:            var(--couleur-accent);
+  border:           2px solid var(--couleur-accent);
+}
+
+.bouton--secondaire:hover {
+  background-color: var(--couleur-accent);
+  color:            var(--couleur-blanc);
+  opacity:          1;
+}
+
+/* --- Bloc mis en avant (callout) --- */
+.callout {
+  background-color: var(--couleur-accent-fond);
+  border-left:      4px solid var(--couleur-accent);
+  padding:          var(--espace-lg) var(--espace-xl);
+  border-radius:    0 var(--rayon) var(--rayon) 0;
+  margin:           var(--espace-xl) 0;
+}
+
+.callout p {
+  margin-bottom: 0;
+  color:         var(--couleur-texte);
+}
+
+/* --- FAQ --- */
+.faq {
+  margin-top: var(--espace-xl);
+}
+
+.faq__item {
+  border-top: 1px solid var(--couleur-bordure);
+  padding: var(--espace-lg) 0;
+}
+
+.faq__item:last-child {
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.faq__question {
+  font-family:   var(--police-serif);
+  font-size:     var(--taille-md);
+  font-weight:   normal;
+  margin-bottom: var(--espace-sm);
+  margin-top:    0;
+  color:         var(--couleur-texte);
+}
+
+.faq__reponse {
+  color: var(--couleur-texte-doux);
+  margin-bottom: 0;
+}
+
+/* --- Formulaire de contact --- */
+.formulaire {
+  margin-top: var(--espace-xl);
+}
+
+.formulaire__groupe {
+  margin-bottom: var(--espace-lg);
+}
+
+.formulaire label {
+  display:       block;
+  font-size:     var(--taille-sm);
+  font-weight:   600;
+  margin-bottom: var(--espace-sm);
+  color:         var(--couleur-texte);
+}
+
+.formulaire input,
+.formulaire textarea {
+  width:            100%;
+  padding:          var(--espace-md);
+  border:           1px solid var(--couleur-bordure);
+  border-radius:    var(--rayon);
+  font-family:      var(--police-sans);
+  font-size:        var(--taille-base);
+  color:            var(--couleur-texte);
+  background-color: var(--couleur-blanc);
+  transition:       border-color var(--transition);
+}
+
+.formulaire input:focus,
+.formulaire textarea:focus {
+  outline:      none;
+  border-color: var(--couleur-accent);
+}
+
+.formulaire textarea {
+  min-height: 150px;
+  resize:     vertical;
+}
+
+
+/* ------------------------------------------------------------
+   8. PIED DE PAGE (FOOTER)
+   ------------------------------------------------------------ */
+
+.site-footer {
+  border-top:       1px solid var(--couleur-bordure);
+  background-color: var(--couleur-blanc);
+  padding:          var(--espace-xl) 0;
+  margin-top:       var(--espace-3xl);
+}
+
+.site-footer .conteneur {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  flex-wrap:       wrap;
+  gap:             var(--espace-md);
+  max-width: var(--largeur-max-wide);
+}
+
+.site-footer p {
+  font-size:     var(--taille-sm);
+  color:         var(--couleur-texte-doux);
+  margin-bottom: 0;
+  max-width:     none;
+}
+
+.footer-liens {
+  display:    flex;
+  gap:        var(--espace-lg);
+  list-style: none;
+  padding:    0;
+  margin:     0;
+}
+
+.footer-liens a {
+  font-size:  var(--taille-sm);
+  color:      var(--couleur-texte-doux);
+  text-decoration: none;
+}
+
+.footer-liens a:hover {
+  color: var(--couleur-accent);
+}
+
+
+/* ------------------------------------------------------------
+   9. RESPONSIVE — menu mobile
+   Point de rupture unique à 700px
+   ------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+  /* Titres légèrement réduits sur mobile */
+  h1 { font-size: var(--taille-xl); }
+  h2 { font-size: var(--taille-lg); }
+
+  /* Navigation mobile : masquée par défaut, révélée par JS */
+  .site-nav {
+    display:          none;
+    position:         absolute;
+    top:              100%;
+    left:             0;
+    right:            0;
+    background-color: var(--couleur-blanc);
+    border-bottom:    1px solid var(--couleur-bordure);
+    flex-direction:   column;
+    gap:              0;
+    padding:          var(--espace-md) 0;
+  }
+
+  /* Quand le menu est ouvert (classe ajoutée par JS) */
+  .site-nav.est-ouvert {
+    display: flex;
+  }
+
+  .site-nav li {
+    width: 100%;
+  }
+
+  .site-nav a {
+    display:  block;
+    padding:  var(--espace-md) var(--espace-lg);
+    font-size: var(--taille-base);
+  }
+
+  /* Affiche le bouton hamburger */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Le header devient le référent pour la position absolute du menu */
+  .site-header {
+    position: relative; /* sur mobile on lâche le sticky pour ne pas gêner */
+  }
+
+  /* Cartes : réduction du padding sur petit écran */
+  .carte {
+    padding: var(--espace-lg);
+  }
+
+  /* Footer en colonne sur mobile */
+  .site-footer .conteneur {
+    flex-direction: column;
+    align-items:    flex-start;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   10. ACCESSIBILITÉ
+   ------------------------------------------------------------ */
+
+/* Affiche le focus visible pour la navigation au clavier */
+:focus-visible {
+  outline:        2px solid var(--couleur-accent);
+  outline-offset: 3px;
+  border-radius:  var(--rayon);
+}
+
+/* Masque visuellement mais garde accessible aux lecteurs d'écran */
+.sr-only {
+  position:   absolute;
+  width:      1px;
+  height:     1px;
+  padding:    0;
+  margin:     -1px;
+  overflow:   hidden;
+  clip:       rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:     0;
+}
+
+/* Respecte les préférences de réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:   0.01ms !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior:      auto !important;
+  }
+}

@@ -1,0 +1,10 @@
+# robots.txt — Hugo Ogez Portfolio
+# https://hugoogez.fr/robots.txt
+#
+# Autorise tous les crawlers sur tout le site.
+# La ligne Sitemap indique aux moteurs où trouver le plan du site.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://hugoogez.fr/sitemap.xml

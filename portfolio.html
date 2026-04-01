@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- ============================================================
+       META ESSENTIELS
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title : 57 caractères -->
+  <title>Portfolio Hugo Ogez — Projets SEO & Marketing Digital</title>
+
+  <!-- Meta description : 155 caractères -->
+  <meta name="description" content="Projets concrets de Hugo Ogez : SEO et marketing digital chez Delta Dore, développement front-end et Scrum Master chez Apizee. Résultats mesurables.">
+
+  <link rel="canonical" href="https://hugoogez.fr/portfolio.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://hugoogez.fr/portfolio.html">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Hugo Ogez">
+  <meta property="og:title"       content="Portfolio Hugo Ogez — Projets SEO & Marketing Digital">
+  <meta property="og:description" content="Projets concrets de Hugo Ogez : SEO et marketing digital chez Delta Dore, développement front-end et Scrum Master chez Apizee. Résultats mesurables.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="Portfolio Hugo Ogez — Projets SEO & Marketing Digital">
+  <meta name="twitter:description" content="Projets concrets de Hugo Ogez : SEO et marketing digital chez Delta Dore, développement front-end et Scrum Master chez Apizee. Résultats mesurables.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Styles spécifiques à la page portfolio -->
+  <style>
+    /* Fiche projet — étend la carte de base */
+    .projet {
+      background-color: var(--couleur-blanc);
+      border:           1px solid var(--couleur-bordure);
+      border-radius:    var(--rayon);
+      padding:          var(--espace-xl);
+      margin-bottom:    var(--espace-xl);
+    }
+
+    /* Bandeau coloré en haut de chaque fiche */
+    .projet__bandeau {
+      height:           4px;
+      background-color: var(--couleur-accent);
+      margin:           calc(-1 * var(--espace-xl)) calc(-1 * var(--espace-xl)) var(--espace-xl);
+      border-radius:    var(--rayon) var(--rayon) 0 0;
+    }
+
+    /* En-tête de la fiche : titre + période sur la même ligne */
+    .projet__en-tete {
+      display:         flex;
+      justify-content: space-between;
+      align-items:     flex-start;
+      gap:             var(--espace-md);
+      margin-bottom:   var(--espace-sm);
+      flex-wrap:       wrap;
+    }
+
+    .projet__titre {
+      font-family:  var(--police-serif);
+      font-size:    var(--taille-xl);
+      font-weight:  normal;
+      margin:       0;
+      color:        var(--couleur-texte);
+    }
+
+    .projet__periode {
+      font-size:   var(--taille-sm);
+      color:       var(--couleur-texte-doux);
+      font-style:  italic;
+      white-space: nowrap;
+    }
+
+    .projet__entreprise {
+      font-size:     var(--taille-sm);
+      font-weight:   600;
+      color:         var(--couleur-accent);
+      margin-bottom: var(--espace-lg);
+    }
+
+    /* Description courte du contexte */
+    .projet__contexte {
+      font-style:    italic;
+      color:         var(--couleur-texte-doux);
+      border-left:   3px solid var(--couleur-bordure);
+      padding-left:  var(--espace-md);
+      margin-bottom: var(--espace-lg);
+    }
+
+    /* Liste des missions avec puce personnalisée */
+    .projet__missions {
+      list-style: none;
+      padding:    0;
+      margin-bottom: var(--espace-lg);
+    }
+
+    .projet__missions li {
+      padding-left:  var(--espace-lg);
+      position:      relative;
+      margin-bottom: var(--espace-sm);
+      font-size:     var(--taille-sm);
+      color:         var(--couleur-texte-doux);
+    }
+
+    /* Puce rouge brique personnalisée */
+    .projet__missions li::before {
+      content:  "—";
+      position: absolute;
+      left:     0;
+      color:    var(--couleur-accent);
+      font-weight: 600;
+    }
+
+    /* Sous-section dans une fiche (ex: résultats, outils) */
+    .projet__sous-titre {
+      font-size:      var(--taille-sm);
+      font-family:    var(--police-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color:          var(--couleur-texte-doux);
+      margin-bottom:  var(--espace-sm);
+      margin-top:     var(--espace-lg);
+    }
+
+    @media (max-width: 700px) {
+      .projet__en-tete {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <!-- ============================================================
+       DONNÉES STRUCTURÉES JSON-LD
+       - WebPage + BreadcrumbList
+       - ItemList : liste les projets pour Google et les LLMs
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://hugoogez.fr/portfolio.html#webpage",
+        "url": "https://hugoogez.fr/portfolio.html",
+        "name": "Portfolio Hugo Ogez — Projets SEO & Marketing Digital",
+        "description": "Projets concrets de Hugo Ogez en SEO, marketing digital, développement front-end et gestion de projet.",
+        "inLanguage": "fr-FR",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://hugoogez.fr/#website",
+          "url": "https://hugoogez.fr/",
+          "name": "Hugo Ogez"
+        },
+        "breadcrumb": {
+          "@id": "https://hugoogez.fr/portfolio.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://hugoogez.fr/portfolio.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://hugoogez.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Portfolio",
+            "item": "https://hugoogez.fr/portfolio.html"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Projets de Hugo Ogez",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Marketing digital & SEO — Delta Dore",
+            "description": "SEO technique, campagnes Google Ads, analyse GA4, rédaction web, automatisation Zapier chez Delta Dore (2024-2026)."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Développement front-end & Scrum Master — Apizee",
+            "description": "Développement d'interfaces front-end et coordination d'une équipe de 5 prestataires chez Apizee (2022-2024)."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ============================================================
+       EN-TÊTE ET NAVIGATION
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="conteneur conteneur--large">
+
+      <a href="index.html" class="site-logo" aria-label="Hugo Ogez — accueil">Hugo Ogez</a>
+
+      <button class="menu-toggle" aria-controls="navigation-principale" aria-expanded="false" aria-label="Ouvrir le menu">
+        &#9776;
+      </button>
+
+      <nav aria-label="Navigation principale">
+        <ul class="site-nav" id="navigation-principale" role="list">
+          <li><a href="index.html"     >Accueil</a></li>
+          <li><a href="cv.html"       >CV</a></li>
+          <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+          <li><a href="geo.html"      >GEO</a></li>
+          <li><a href="contact.html"  >Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+       ============================================================ -->
+  <main class="site-main" id="contenu-principal" role="main">
+    <div class="conteneur">
+
+      <!-- Fil d'Ariane -->
+      <nav aria-label="Fil d'Ariane">
+        <ol style="list-style:none; padding:0; display:flex; gap:var(--espace-sm); font-size:var(--taille-sm); color:var(--couleur-texte-doux); margin-bottom:var(--espace-xl);">
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-hidden="true" style="color:var(--couleur-bordure);">›</li>
+          <li aria-current="page" style="color:var(--couleur-texte);">Portfolio</li>
+        </ol>
+      </nav>
+
+      <h1>Portfolio</h1>
+      <p class="lead">Projets concrets en marketing digital, SEO et développement front-end.</p>
+
+      <p>
+        Chaque fiche présente le contexte, les missions réelles et les outils utilisés.
+        Le code source de ce site est lui-même un projet à part entière —
+        <a href="https://github.com/HugoOgez0712" target="_blank" rel="noopener noreferrer">disponible sur GitHub</a>.
+      </p>
+
+      <hr class="separateur">
+
+      <!-- ==============================================================
+           LISTE DES PROJETS
+           Pour ajouter un nouveau projet, copier le bloc <article> ci-dessous
+           depuis "DÉBUT FICHE PROJET" jusqu'à "FIN FICHE PROJET"
+           et coller avant le commentaire "AJOUTER UN PROJET ICI"
+           ============================================================== -->
+
+      <!-- ============================================================
+           DÉBUT FICHE PROJET 1 — Delta Dore
+           ============================================================ -->
+      <article class="projet" id="delta-dore" aria-labelledby="titre-delta-dore">
+
+        <div class="projet__bandeau" aria-hidden="true"></div>
+
+        <div class="projet__en-tete">
+          <h2 class="projet__titre" id="titre-delta-dore">Marketing digital &amp; SEO</h2>
+          <span class="projet__periode">
+            <time datetime="2024-09">Sept. 2024</time> –
+            <time datetime="2026-09">Sept. 2026</time>
+          </span>
+        </div>
+
+        <p class="projet__entreprise">Delta Dore · Cesson-Sévigné (35) — Alternance</p>
+
+        <p class="projet__contexte">
+          Delta Dore est un fabricant français de solutions domotiques (thermostats, volets, sécurité).
+          En tant qu'alternant marketing digital, j'interviens sur l'ensemble de la présence digitale :
+          référencement naturel, publicité en ligne, contenu et données.
+        </p>
+
+        <p class="projet__sous-titre">Missions</p>
+        <ul class="projet__missions">
+          <li>Audits SEO techniques : analyse de la structure, des balises, de la vitesse de chargement et de la couverture d'indexation</li>
+          <li>Optimisations on-page : titres, meta descriptions, balisage Hn, maillage interne</li>
+          <li>Suivi des positions et de la performance via Google Search Console</li>
+          <li>Rédaction d'articles de blog optimisés SEO et GEO (Generative Engine Optimization)</li>
+          <li>Gestion et optimisation de campagnes Google Ads : ciblage, enchères, annonces</li>
+          <li>Analyse de l'audience et des conversions via Google Analytics 4</li>
+          <li>Automatisation de workflows répétitifs avec Zapier</li>
+          <li>Gestion et enrichissement du catalogue produits dans le PIM (Product Information Management)</li>
+          <li>Utilisation de l'IA générative pour la production de contenus et la recherche sémantique</li>
+        </ul>
+
+        <p class="projet__sous-titre">Outils</p>
+        <div class="tags">
+          <span class="tag">Google Search Console</span>
+          <span class="tag">Google Analytics 4</span>
+          <span class="tag">Google Ads</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">IA générative</span>
+          <span class="tag">PIM</span>
+          <span class="tag">SEO technique</span>
+          <span class="tag">GEO</span>
+        </div>
+
+      </article>
+      <!-- FIN FICHE PROJET 1 — Delta Dore -->
+
+
+      <!-- ============================================================
+           DÉBUT FICHE PROJET 2 — Apizee
+           ============================================================ -->
+      <article class="projet" id="apizee" aria-labelledby="titre-apizee">
+
+        <div class="projet__bandeau" aria-hidden="true"></div>
+
+        <div class="projet__en-tete">
+          <h2 class="projet__titre" id="titre-apizee">Développement front-end &amp; Scrum Master</h2>
+          <span class="projet__periode">
+            <time datetime="2022">2022</time> –
+            <time datetime="2024">2024</time>
+          </span>
+        </div>
+
+        <p class="projet__entreprise">Apizee · Rennes (35)</p>
+
+        <p class="projet__contexte">
+          Apizee est une entreprise rennaise spécialisée dans la communication vidéo en temps réel
+          (WebRTC). J'y ai occupé un double rôle de développeur front-end et de Scrum Master,
+          coordonnant une équipe de cinq prestataires externes.
+        </p>
+
+        <p class="projet__sous-titre">Missions</p>
+        <ul class="projet__missions">
+          <li>Développement d'interfaces utilisateur en HTML5, CSS3 et JavaScript</li>
+          <li>Coordination et suivi quotidien d'une équipe de cinq prestataires externes</li>
+          <li>Animation des cérémonies Agile : sprint planning, daily stand-up, sprint review, rétrospective</li>
+          <li>Gestion du backlog produit : priorisation des user stories, estimation des charges</li>
+          <li>Collaboration avec les équipes design (intégration des maquettes) et back-end (consommation d'API)</li>
+          <li>Livraison régulière de sprints dans les délais</li>
+        </ul>
+
+        <p class="projet__sous-titre">Outils &amp; méthodes</p>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">Agile</span>
+          <span class="tag">Gestion d'équipe</span>
+        </div>
+
+      </article>
+      <!-- FIN FICHE PROJET 2 — Apizee -->
+
+
+      <!-- ============================================================
+           DÉBUT FICHE PROJET 3 — Ce site
+           ============================================================ -->
+      <article class="projet" id="portfolio-site" aria-labelledby="titre-portfolio-site">
+
+        <div class="projet__bandeau" aria-hidden="true"></div>
+
+        <div class="projet__en-tete">
+          <h2 class="projet__titre" id="titre-portfolio-site">Ce site — Portfolio technique SEO/GEO</h2>
+          <span class="projet__periode">
+            <time datetime="2026">2026</time>
+          </span>
+        </div>
+
+        <p class="projet__entreprise">Projet personnel · hugoogez.fr</p>
+
+        <p class="projet__contexte">
+          Ce portfolio est lui-même un projet technique. Il démontre concrètement la maîtrise
+          du SEO technique et du GEO : zéro framework, HTML5 sémantique, données structurées
+          JSON-LD complètes, architecture pensée pour les moteurs de recherche et les LLMs.
+        </p>
+
+        <p class="projet__sous-titre">Choix techniques</p>
+        <ul class="projet__missions">
+          <li>HTML5 sémantique : balises article, section, nav, time, figure — pas de div génériques</li>
+          <li>CSS custom properties uniquement — zéro framework, zéro Google Fonts</li>
+          <li>Données structurées JSON-LD sur chaque page : Person, WebPage, Article, BreadcrumbList, FAQPage</li>
+          <li>Optimisation GEO : résumés denses en tête de page, entités nommées, blocs autonomes</li>
+          <li>Score Lighthouse cible : 90+ sur les quatre axes (performance, accessibilité, bonnes pratiques, SEO)</li>
+          <li>Hébergé sur GitHub Pages — déploiement continu via Git</li>
+        </ul>
+
+        <p class="projet__sous-titre">Technologies</p>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JSON-LD</span>
+          <span class="tag">Schema.org</span>
+          <span class="tag">GitHub Pages</span>
+          <span class="tag">SEO technique</span>
+          <span class="tag">GEO</span>
+        </div>
+
+        <p style="margin-top:var(--espace-lg);">
+          <a href="https://github.com/HugoOgez0712" target="_blank" rel="noopener noreferrer" class="bouton bouton--secondaire">
+            Voir le code source
+          </a>
+        </p>
+
+      </article>
+      <!-- FIN FICHE PROJET 3 — Ce site -->
+
+
+      <!-- ==============================================================
+           AJOUTER UN PROJET ICI
+           Copier un bloc <article class="projet"> ci-dessus
+           et le coller juste avant cette ligne.
+           Ne pas oublier de :
+           - donner un id unique à l'article (ex: id="nom-projet")
+           - mettre à jour le JSON-LD ItemList en haut de page
+             (ajouter un ListItem avec position, name et description)
+           ============================================================== -->
+
+
+    </div><!-- /conteneur -->
+  </main>
+
+  <!-- ============================================================
+       PIED DE PAGE
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="conteneur conteneur--large">
+
+      <p>
+        &copy; <time datetime="2026">2026</time> Hugo Ogez ·
+        <a href="mailto:zego.hugo@gmail.com">zego.hugo@gmail.com</a>
+      </p>
+
+      <ul class="footer-liens" role="list">
+        <li><a href="https://www.linkedin.com/in/hugoogez/"  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/HugoOgez0712"        target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+
+    </div>
+  </footer>
+
+  <!-- Menu mobile -->
+  <script>
+    var boutonMenu = document.querySelector('.menu-toggle');
+    var navMenu    = document.querySelector('.site-nav');
+
+    boutonMenu.addEventListener('click', function () {
+      var estOuvert = navMenu.classList.toggle('est-ouvert');
+      boutonMenu.setAttribute('aria-expanded', estOuvert);
+    });
+  </script>
+
+</body>
+</html>

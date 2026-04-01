@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- ============================================================
+       META ESSENTIELS
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title : 55 caractères -->
+  <title>Contact — Hugo Ogez, disponible en CDI à Rennes 2026</title>
+
+  <!-- Meta description : 157 caractères -->
+  <meta name="description" content="Contacter Hugo Ogez, chargé de marketing digital SEO à Rennes. Disponible en CDI dans le bassin rennais à partir d'octobre 2026. Email, LinkedIn, formulaire.">
+
+  <link rel="canonical" href="https://hugoogez.fr/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://hugoogez.fr/contact.html">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Hugo Ogez">
+  <meta property="og:title"       content="Contact — Hugo Ogez, disponible en CDI à Rennes 2026">
+  <meta property="og:description" content="Contacter Hugo Ogez, chargé de marketing digital SEO à Rennes. Disponible en CDI dans le bassin rennais à partir d'octobre 2026.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="Contact — Hugo Ogez, disponible en CDI à Rennes 2026">
+  <meta name="twitter:description" content="Contacter Hugo Ogez, chargé de marketing digital SEO à Rennes. Disponible en CDI dans le bassin rennais à partir d'octobre 2026.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Styles spécifiques à la page contact -->
+  <style>
+    /* Mise en page deux colonnes : formulaire + infos directes */
+    .contact-grille {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: var(--espace-2xl);
+      align-items: start;
+      margin-top: var(--espace-xl);
+    }
+
+    /* Colonne d'informations directes */
+    .contact-infos {
+      background-color: var(--couleur-blanc);
+      border:           1px solid var(--couleur-bordure);
+      border-radius:    var(--rayon);
+      padding:          var(--espace-xl);
+    }
+
+    .contact-infos h2 {
+      font-size:      var(--taille-sm);
+      font-family:    var(--police-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color:          var(--couleur-texte-doux);
+      margin-top:     0;
+      margin-bottom:  var(--espace-lg);
+      padding-bottom: var(--espace-sm);
+      border-bottom:  1px solid var(--couleur-bordure);
+    }
+
+    .contact-lien {
+      display:       flex;
+      flex-direction: column;
+      gap:           var(--espace-xs);
+      margin-bottom: var(--espace-lg);
+      padding-bottom: var(--espace-lg);
+      border-bottom: 1px solid var(--couleur-bordure);
+    }
+
+    .contact-lien:last-child {
+      border-bottom:  none;
+      margin-bottom:  0;
+      padding-bottom: 0;
+    }
+
+    .contact-lien__label {
+      font-size:   var(--taille-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color:       var(--couleur-texte-doux);
+    }
+
+    .contact-lien__valeur {
+      font-size:   var(--taille-sm);
+      font-weight: 500;
+      word-break:  break-all; /* évite le débordement sur mobile */
+    }
+
+    /* Encart disponibilité CDI */
+    .dispo-badge {
+      background-color: var(--couleur-accent-fond);
+      border:           1px solid var(--couleur-accent);
+      border-radius:    var(--rayon);
+      padding:          var(--espace-md) var(--espace-lg);
+      margin-bottom:    var(--espace-2xl);
+      display:          inline-flex;
+      align-items:      center;
+      gap:              var(--espace-sm);
+    }
+
+    /* Pastille verte "disponible" */
+    .dispo-badge::before {
+      content:          "";
+      display:          inline-block;
+      width:            10px;
+      height:           10px;
+      border-radius:    50%;
+      background-color: #27ae60; /* vert — exception à la palette, signification universelle */
+      flex-shrink:      0;
+    }
+
+    .dispo-badge p {
+      font-size:     var(--taille-sm);
+      font-weight:   600;
+      color:         var(--couleur-accent);
+      margin-bottom: 0;
+      max-width:     none;
+    }
+
+    /* Responsive : une colonne sur mobile */
+    @media (max-width: 700px) {
+      .contact-grille {
+        grid-template-columns: 1fr;
+      }
+
+      /* Sur mobile, les infos passent avant le formulaire */
+      .contact-infos {
+        order: -1;
+      }
+    }
+  </style>
+
+  <!-- ============================================================
+       DONNÉES STRUCTURÉES JSON-LD
+       - WebPage + BreadcrumbList
+       - ContactPage : schema spécifique aux pages de contact
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://hugoogez.fr/contact.html#webpage",
+        "url": "https://hugoogez.fr/contact.html",
+        "name": "Contact — Hugo Ogez",
+        "description": "Page de contact de Hugo Ogez, chargé de marketing digital disponible en CDI à Rennes en octobre 2026.",
+        "inLanguage": "fr-FR",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://hugoogez.fr/#website",
+          "url": "https://hugoogez.fr/",
+          "name": "Hugo Ogez"
+        },
+        "about": {
+          "@id": "https://hugoogez.fr/#hugo-ogez"
+        },
+        "breadcrumb": {
+          "@id": "https://hugoogez.fr/contact.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://hugoogez.fr/contact.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://hugoogez.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://hugoogez.fr/contact.html"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://hugoogez.fr/#hugo-ogez",
+        "name": "Hugo Ogez",
+        "email": "zego.hugo@gmail.com",
+        "url": "https://hugoogez.fr/",
+        "jobTitle": "Chargé de marketing digital — SEO & Contenu",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Thorigné-Fouillard",
+          "addressRegion": "Ille-et-Vilaine",
+          "addressCountry": "FR"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/hugoogez/",
+          "https://github.com/HugoOgez0712"
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ============================================================
+       EN-TÊTE ET NAVIGATION
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="conteneur conteneur--large">
+
+      <a href="index.html" class="site-logo" aria-label="Hugo Ogez — accueil">Hugo Ogez</a>
+
+      <button class="menu-toggle" aria-controls="navigation-principale" aria-expanded="false" aria-label="Ouvrir le menu">
+        &#9776;
+      </button>
+
+      <nav aria-label="Navigation principale">
+        <ul class="site-nav" id="navigation-principale" role="list">
+          <li><a href="index.html"     >Accueil</a></li>
+          <li><a href="cv.html"       >CV</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="geo.html"      >GEO</a></li>
+          <li><a href="contact.html"   aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+       ============================================================ -->
+  <main class="site-main" id="contenu-principal" role="main">
+    <div class="conteneur">
+
+      <!-- Fil d'Ariane -->
+      <nav aria-label="Fil d'Ariane">
+        <ol style="list-style:none; padding:0; display:flex; gap:var(--espace-sm); font-size:var(--taille-sm); color:var(--couleur-texte-doux); margin-bottom:var(--espace-xl);">
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-hidden="true" style="color:var(--couleur-bordure);">›</li>
+          <li aria-current="page" style="color:var(--couleur-texte);">Contact</li>
+        </ol>
+      </nav>
+
+      <h1>Contact</h1>
+
+      <!-- Encart disponibilité CDI — info clé visible immédiatement -->
+      <div class="dispo-badge" role="note" aria-label="Statut de disponibilité">
+        <p>Disponible en CDI — Bassin rennais — À partir d'octobre 2026</p>
+      </div>
+
+      <p>
+        Hugo Ogez, chargé de marketing digital spécialisé SEO et GEO, basé à
+        Thorigné-Fouillard (35). Actuellement en alternance chez Delta Dore
+        jusqu'en septembre 2026. Open à toute opportunité CDI dans le bassin rennais.
+      </p>
+
+      <!-- Grille formulaire + infos directes -->
+      <div class="contact-grille">
+
+        <!-- ==================== FORMULAIRE ==================== -->
+        <!-- Compatible Netlify Forms : l'attribut data-netlify="true"
+             suffit pour activer la réception des messages sans backend.
+             Si hébergé sur GitHub Pages, remplacer par un service tiers
+             (Formspree, Web3Forms) en changeant l'action du formulaire. -->
+        <section aria-labelledby="titre-formulaire">
+          <h2 id="titre-formulaire">Envoyer un message</h2>
+
+          <form
+            class="formulaire"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            action="/merci.html"
+            aria-label="Formulaire de contact"
+          >
+            <!-- Champ caché requis par Netlify Forms -->
+            <input type="hidden" name="form-name" value="contact">
+
+            <div class="formulaire__groupe">
+              <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                autocomplete="name"
+                required
+                aria-required="true"
+                placeholder="Prénom Nom"
+              >
+            </div>
+
+            <div class="formulaire__groupe">
+              <label for="email">Votre email <span aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+                placeholder="prenom@entreprise.fr"
+              >
+            </div>
+
+            <div class="formulaire__groupe">
+              <label for="entreprise">Entreprise</label>
+              <input
+                type="text"
+                id="entreprise"
+                name="entreprise"
+                autocomplete="organization"
+                placeholder="Nom de votre entreprise"
+              >
+            </div>
+
+            <div class="formulaire__groupe">
+              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                aria-required="true"
+                placeholder="Décrivez le poste ou votre demande..."
+              ></textarea>
+            </div>
+
+            <!-- Honeypot anti-spam Netlify : champ invisible pour les humains -->
+            <div style="display:none;" aria-hidden="true">
+              <label>Ne pas remplir : <input name="bot-field"></label>
+            </div>
+
+            <button type="submit" class="bouton">Envoyer le message</button>
+
+          </form>
+        </section>
+
+        <!-- ==================== INFOS DIRECTES ==================== -->
+        <aside class="contact-infos" aria-label="Coordonnées directes">
+          <h2>Coordonnées</h2>
+
+          <div class="contact-lien">
+            <span class="contact-lien__label">Email</span>
+            <span class="contact-lien__valeur">
+              <a href="mailto:zego.hugo@gmail.com">zego.hugo@gmail.com</a>
+            </span>
+          </div>
+
+          <div class="contact-lien">
+            <span class="contact-lien__label">LinkedIn</span>
+            <span class="contact-lien__valeur">
+              <a href="https://www.linkedin.com/in/hugoogez/" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/hugoogez
+              </a>
+            </span>
+          </div>
+
+          <div class="contact-lien">
+            <span class="contact-lien__label">GitHub</span>
+            <span class="contact-lien__valeur">
+              <a href="https://github.com/HugoOgez0712" target="_blank" rel="noopener noreferrer">
+                HugoOgez0712
+              </a>
+            </span>
+          </div>
+
+          <div class="contact-lien">
+            <span class="contact-lien__label">Localisation</span>
+            <span class="contact-lien__valeur">Thorigné-Fouillard (35)<br>Bassin rennais</span>
+          </div>
+
+          <div class="contact-lien">
+            <span class="contact-lien__label">Disponibilité</span>
+            <span class="contact-lien__valeur" style="color:var(--couleur-accent);">CDI — octobre 2026</span>
+          </div>
+
+        </aside>
+
+      </div><!-- /contact-grille -->
+
+    </div><!-- /conteneur -->
+  </main>
+
+  <!-- ============================================================
+       PIED DE PAGE
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="conteneur conteneur--large">
+
+      <p>
+        &copy; <time datetime="2026">2026</time> Hugo Ogez ·
+        <a href="mailto:zego.hugo@gmail.com">zego.hugo@gmail.com</a>
+      </p>
+
+      <ul class="footer-liens" role="list">
+        <li><a href="https://www.linkedin.com/in/hugoogez/"  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/HugoOgez0712"        target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+
+    </div>
+  </footer>
+
+  <!-- Menu mobile -->
+  <script>
+    var boutonMenu = document.querySelector('.menu-toggle');
+    var navMenu    = document.querySelector('.site-nav');
+
+    boutonMenu.addEventListener('click', function () {
+      var estOuvert = navMenu.classList.toggle('est-ouvert');
+      boutonMenu.setAttribute('aria-expanded', estOuvert);
+    });
+  </script>
+
+</body>
+</html>
