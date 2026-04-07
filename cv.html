@@ -1,550 +1,660 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-  <!-- ============================================================
+  <head>
+    <!-- ============================================================
        META ESSENTIELS
        ============================================================ -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Title : 58 caractères — prénom nom + métier + ville -->
-  <title>CV Hugo Ogez — Marketing Digital SEO, Rennes 2026</title>
+    <!-- Title : 58 caractères — prénom nom + métier + ville -->
+    <title>CV Hugo Ogez — Marketing Digital SEO, Rennes 2026</title>
 
-  <!-- Meta description : 156 caractères -->
-  <meta name="description" content="CV de Hugo Ogez, chargé de marketing digital spécialisé SEO, GEO et contenu. Alternant Delta Dore, ex-développeur front-end Apizee. CDI disponible octobre 2026.">
+    <!-- Meta description : 156 caractères -->
+    <meta
+      name="description"
+      content="CV de Hugo Ogez, chargé de marketing digital spécialisé SEO, GEO et contenu. Alternant Delta Dore, ex-développeur front-end Apizee. CDI disponible octobre 2026."
+    />
 
-  <link rel="canonical" href="https://hugoogez.fr/cv.html">
+    <link rel="canonical" href="https://hugoogez.fr/cv.html" />
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="profile">
-  <meta property="og:url"         content="https://hugoogez.fr/cv.html">
-  <meta property="og:locale"      content="fr_FR">
-  <meta property="og:site_name"   content="Hugo Ogez">
-  <meta property="og:title"       content="CV Hugo Ogez — Marketing Digital SEO, Rennes 2026">
-  <meta property="og:description" content="CV de Hugo Ogez, chargé de marketing digital spécialisé SEO, GEO et contenu. Alternant Delta Dore, ex-développeur front-end Apizee. CDI disponible octobre 2026.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://hugoogez.fr/cv.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Hugo Ogez" />
+    <meta
+      property="og:title"
+      content="CV Hugo Ogez — Marketing Digital SEO, Rennes 2026"
+    />
+    <meta
+      property="og:description"
+      content="CV de Hugo Ogez, chargé de marketing digital spécialisé SEO, GEO et contenu. Alternant Delta Dore, ex-développeur front-end Apizee. CDI disponible octobre 2026."
+    />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary">
-  <meta name="twitter:title"       content="CV Hugo Ogez — Marketing Digital SEO, Rennes 2026">
-  <meta name="twitter:description" content="CV de Hugo Ogez, chargé de marketing digital spécialisé SEO, GEO et contenu. Alternant Delta Dore, ex-développeur front-end Apizee. CDI disponible octobre 2026.">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="CV Hugo Ogez — Marketing Digital SEO, Rennes 2026"
+    />
+    <meta
+      name="twitter:description"
+      content="CV de Hugo Ogez, chargé de marketing digital spécialisé SEO, GEO et contenu. Alternant Delta Dore, ex-développeur front-end Apizee. CDI disponible octobre 2026."
+    />
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- Styles spécifiques à la page CV -->
-  <style>
-    /* Grille deux colonnes sur desktop : compétences / contenu principal */
-    .cv-grille {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: var(--espace-2xl);
-      align-items: start;
-    }
-
-    /* Colonne latérale (compétences, infos, langues) */
-    .cv-sidebar {
-      position: sticky;
-      top: calc(60px + var(--espace-lg)); /* 60px = hauteur approx du header sticky */
-    }
-
-    .cv-sidebar-section {
-      margin-bottom: var(--espace-xl);
-    }
-
-    .cv-sidebar-section h2 {
-      font-size:    var(--taille-sm);
-      font-family:  var(--police-sans);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color:        var(--couleur-texte-doux);
-      margin-bottom: var(--espace-md);
-      margin-top:   0;
-      padding-bottom: var(--espace-sm);
-      border-bottom: 1px solid var(--couleur-bordure);
-    }
-
-    .cv-sidebar-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .cv-sidebar-section li {
-      font-size:     var(--taille-sm);
-      margin-bottom: var(--espace-xs);
-      color:         var(--couleur-texte-doux);
-    }
-
-    .cv-sidebar-section li strong {
-      display: block;
-      color:   var(--couleur-texte);
-      font-size: var(--taille-sm);
-    }
-
-    /* Colonne principale */
-    .cv-contenu h2 {
-      font-size:      var(--taille-sm);
-      font-family:    var(--police-sans);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color:          var(--couleur-texte-doux);
-      margin-top:     var(--espace-2xl);
-      margin-bottom:  var(--espace-lg);
-      padding-bottom: var(--espace-sm);
-      border-bottom:  1px solid var(--couleur-bordure);
-    }
-
-    .cv-contenu h2:first-child {
-      margin-top: 0;
-    }
-
-    /* Entrée de CV (expérience, formation) */
-    .cv-entree {
-      margin-bottom: var(--espace-xl);
-      padding-bottom: var(--espace-xl);
-      border-bottom: 1px solid var(--couleur-bordure);
-    }
-
-    .cv-entree:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .cv-entree__en-tete {
-      display:         flex;
-      justify-content: space-between;
-      align-items:     flex-start;
-      gap:             var(--espace-md);
-      margin-bottom:   var(--espace-sm);
-      flex-wrap:       wrap;
-    }
-
-    .cv-entree__titre {
-      font-family:   var(--police-serif);
-      font-size:     var(--taille-md);
-      font-weight:   normal;
-      margin:        0;
-      color:         var(--couleur-texte);
-    }
-
-    .cv-entree__periode {
-      font-size:   var(--taille-sm);
-      color:       var(--couleur-texte-doux);
-      white-space: nowrap;
-      font-style:  italic;
-    }
-
-    .cv-entree__lieu {
-      font-size:     var(--taille-sm);
-      font-weight:   600;
-      color:         var(--couleur-accent);
-      margin-bottom: var(--espace-md);
-    }
-
-    .cv-entree ul {
-      margin-top: var(--espace-sm);
-    }
-
-    .cv-entree li {
-      font-size:     var(--taille-sm);
-      color:         var(--couleur-texte-doux);
-      margin-bottom: var(--espace-xs);
-    }
-
-    /* Barre de niveau de compétence (visuel simple) */
-    .niveau {
-      display:       inline-block;
-      font-size:     var(--taille-xs);
-      color:         var(--couleur-accent);
-      margin-left:   var(--espace-xs);
-      letter-spacing: 2px;
-    }
-
-    /* Encart disponibilité CDI */
-    .cv-disponibilite {
-      background-color: var(--couleur-accent-fond);
-      border-left:      4px solid var(--couleur-accent);
-      padding:          var(--espace-md) var(--espace-lg);
-      margin-bottom:    var(--espace-2xl);
-      border-radius:    0 var(--rayon) var(--rayon) 0;
-    }
-
-    .cv-disponibilite p {
-      font-size:     var(--taille-sm);
-      margin-bottom: 0;
-      max-width:     none;
-    }
-
-    /* Responsive : une seule colonne sous 700px */
-    @media (max-width: 700px) {
+    <!-- Styles spécifiques à la page CV -->
+    <style>
+      /* Grille deux colonnes sur desktop : compétences / contenu principal */
       .cv-grille {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: var(--espace-2xl);
+        align-items: start;
       }
 
+      /* Colonne latérale (compétences, infos, langues) */
       .cv-sidebar {
-        position: static;
+        position: sticky;
+        top: calc(
+          60px + var(--espace-lg)
+        ); /* 60px = hauteur approx du header sticky */
+      }
+
+      .cv-sidebar-section {
+        margin-bottom: var(--espace-xl);
+      }
+
+      .cv-sidebar-section h2 {
+        font-size: var(--taille-sm);
+        font-family: var(--police-sans);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--couleur-texte-doux);
+        margin-bottom: var(--espace-md);
+        margin-top: 0;
+        padding-bottom: var(--espace-sm);
+        border-bottom: 1px solid var(--couleur-bordure);
+      }
+
+      .cv-sidebar-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cv-sidebar-section li {
+        font-size: var(--taille-sm);
+        margin-bottom: var(--espace-xs);
+        color: var(--couleur-texte-doux);
+      }
+
+      .cv-sidebar-section li strong {
+        display: block;
+        color: var(--couleur-texte);
+        font-size: var(--taille-sm);
+      }
+
+      /* Colonne principale */
+      .cv-contenu h2 {
+        font-size: var(--taille-sm);
+        font-family: var(--police-sans);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--couleur-texte-doux);
+        margin-top: var(--espace-2xl);
+        margin-bottom: var(--espace-lg);
+        padding-bottom: var(--espace-sm);
+        border-bottom: 1px solid var(--couleur-bordure);
+      }
+
+      .cv-contenu h2:first-child {
+        margin-top: 0;
+      }
+
+      /* Entrée de CV (expérience, formation) */
+      .cv-entree {
+        margin-bottom: var(--espace-xl);
+        padding-bottom: var(--espace-xl);
+        border-bottom: 1px solid var(--couleur-bordure);
+      }
+
+      .cv-entree:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
       }
 
       .cv-entree__en-tete {
-        flex-direction: column;
-        gap:            var(--espace-xs);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--espace-md);
+        margin-bottom: var(--espace-sm);
+        flex-wrap: wrap;
       }
-    }
-  </style>
 
-  <!-- ============================================================
+      .cv-entree__titre {
+        font-family: var(--police-serif);
+        font-size: var(--taille-md);
+        font-weight: normal;
+        margin: 0;
+        color: var(--couleur-texte);
+      }
+
+      .cv-entree__periode {
+        font-size: var(--taille-sm);
+        color: var(--couleur-texte-doux);
+        white-space: nowrap;
+        font-style: italic;
+      }
+
+      .cv-entree__lieu {
+        font-size: var(--taille-sm);
+        font-weight: 600;
+        color: var(--couleur-accent);
+        margin-bottom: var(--espace-md);
+      }
+
+      .cv-entree ul {
+        margin-top: var(--espace-sm);
+      }
+
+      .cv-entree li {
+        font-size: var(--taille-sm);
+        color: var(--couleur-texte-doux);
+        margin-bottom: var(--espace-xs);
+      }
+
+      /* Barre de niveau de compétence (visuel simple) */
+      .niveau {
+        display: inline-block;
+        font-size: var(--taille-xs);
+        color: var(--couleur-accent);
+        margin-left: var(--espace-xs);
+        letter-spacing: 2px;
+      }
+
+      /* Encart disponibilité CDI */
+      .cv-disponibilite {
+        background-color: var(--couleur-accent-fond);
+        border-left: 4px solid var(--couleur-accent);
+        padding: var(--espace-md) var(--espace-lg);
+        margin-bottom: var(--espace-2xl);
+        border-radius: 0 var(--rayon) var(--rayon) 0;
+      }
+
+      .cv-disponibilite p {
+        font-size: var(--taille-sm);
+        margin-bottom: 0;
+        max-width: none;
+      }
+
+      /* Responsive : une seule colonne sous 700px */
+      @media (max-width: 700px) {
+        .cv-grille {
+          grid-template-columns: 1fr;
+        }
+
+        .cv-sidebar {
+          position: static;
+        }
+
+        .cv-entree__en-tete {
+          flex-direction: column;
+          gap: var(--espace-xs);
+        }
+      }
+    </style>
+
+    <!-- ============================================================
        DONNÉES STRUCTURÉES JSON-LD
        - WebPage : qualifie cette page
        - Person  : répète les infos clés (utile si page partagée seule)
        - BreadcrumbList : fil d'Ariane pour Google (affichage enrichi)
        ============================================================ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
+    <script type="application/ld+json">
       {
-        "@type": "WebPage",
-        "@id": "https://hugoogez.fr/cv.html#webpage",
-        "url": "https://hugoogez.fr/cv.html",
-        "name": "CV Hugo Ogez — Marketing Digital SEO, Rennes 2026",
-        "description": "CV complet de Hugo Ogez, chargé de marketing digital spécialisé en SEO, GEO et contenu, disponible en CDI à Rennes en octobre 2026.",
-        "inLanguage": "fr-FR",
-        "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://hugoogez.fr/#website",
-          "url": "https://hugoogez.fr/",
-          "name": "Hugo Ogez"
-        },
-        "about": {
-          "@id": "https://hugoogez.fr/#hugo-ogez"
-        },
-        "breadcrumb": {
-          "@id": "https://hugoogez.fr/cv.html#breadcrumb"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://hugoogez.fr/cv.html#breadcrumb",
-        "itemListElement": [
+        "@context": "https://schema.org",
+        "@graph": [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Accueil",
-            "item": "https://hugoogez.fr/"
+            "@type": "WebPage",
+            "@id": "https://hugoogez.fr/cv.html#webpage",
+            "url": "https://hugoogez.fr/cv.html",
+            "name": "CV Hugo Ogez — Marketing Digital SEO, Rennes 2026",
+            "description": "CV complet de Hugo Ogez, chargé de marketing digital spécialisé en SEO, GEO et contenu, disponible en CDI à Rennes en octobre 2026.",
+            "inLanguage": "fr-FR",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://hugoogez.fr/#website",
+              "url": "https://hugoogez.fr/",
+              "name": "Hugo Ogez"
+            },
+            "about": {
+              "@id": "https://hugoogez.fr/#hugo-ogez"
+            },
+            "breadcrumb": {
+              "@id": "https://hugoogez.fr/cv.html#breadcrumb"
+            }
           },
           {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "CV",
-            "item": "https://hugoogez.fr/cv.html"
+            "@type": "BreadcrumbList",
+            "@id": "https://hugoogez.fr/cv.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://hugoogez.fr/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "CV",
+                "item": "https://hugoogez.fr/cv.html"
+              }
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://hugoogez.fr/#hugo-ogez",
+            "name": "Hugo Ogez",
+            "url": "https://hugoogez.fr/",
+            "email": "zego.hugo@gmail.com",
+            "jobTitle": "Chargé de marketing digital — SEO & Contenu",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Thorigné-Fouillard",
+              "addressRegion": "Ille-et-Vilaine",
+              "addressCountry": "FR"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/hugoogez/",
+              "https://github.com/HugoOgez0712"
+            ]
           }
         ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://hugoogez.fr/#hugo-ogez",
-        "name": "Hugo Ogez",
-        "url": "https://hugoogez.fr/",
-        "email": "zego.hugo@gmail.com",
-        "jobTitle": "Chargé de marketing digital — SEO & Contenu",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Thorigné-Fouillard",
-          "addressRegion": "Ille-et-Vilaine",
-          "addressCountry": "FR"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/hugoogez/",
-          "https://github.com/HugoOgez0712"
-        ]
       }
-    ]
-  }
-  </script>
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CKZKR3BQP7"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-</head>
+      gtag("config", "G-CKZKR3BQP7");
+    </script>
+  </head>
 
-<body>
-
-  <!-- ============================================================
+  <body>
+    <!-- ============================================================
        EN-TÊTE ET NAVIGATION
        ============================================================ -->
-  <header class="site-header" role="banner">
-    <div class="conteneur conteneur--large">
+    <header class="site-header" role="banner">
+      <div class="conteneur conteneur--large">
+        <a href="index.html" class="site-logo" aria-label="Hugo Ogez — accueil"
+          >Hugo Ogez</a
+        >
 
-      <a href="index.html" class="site-logo" aria-label="Hugo Ogez — accueil">Hugo Ogez</a>
+        <button
+          class="menu-toggle"
+          aria-controls="navigation-principale"
+          aria-expanded="false"
+          aria-label="Ouvrir le menu"
+        >
+          &#9776;
+        </button>
 
-      <button class="menu-toggle" aria-controls="navigation-principale" aria-expanded="false" aria-label="Ouvrir le menu">
-        &#9776;
-      </button>
+        <nav aria-label="Navigation principale">
+          <ul class="site-nav" id="navigation-principale" role="list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="cv.html" aria-current="page">CV</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="geo.html">GEO</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-      <nav aria-label="Navigation principale">
-        <ul class="site-nav" id="navigation-principale" role="list">
-          <li><a href="index.html"     >Accueil</a></li>
-          <li><a href="cv.html"       aria-current="page">CV</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="geo.html"      >GEO</a></li>
-          <li><a href="contact.html"  >Contact</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- ============================================================
+    <!-- ============================================================
        CONTENU PRINCIPAL
        ============================================================ -->
-  <main class="site-main" id="contenu-principal" role="main">
-    <div class="conteneur">
+    <main class="site-main" id="contenu-principal" role="main">
+      <div class="conteneur">
+        <!-- Fil d'Ariane visible (correspond au BreadcrumbList JSON-LD) -->
+        <nav aria-label="Fil d'Ariane">
+          <ol
+            style="
+              list-style: none;
+              padding: 0;
+              display: flex;
+              gap: var(--espace-sm);
+              font-size: var(--taille-sm);
+              color: var(--couleur-texte-doux);
+              margin-bottom: var(--espace-xl);
+            "
+          >
+            <li><a href="index.html">Accueil</a></li>
+            <li aria-hidden="true" style="color: var(--couleur-bordure)">›</li>
+            <li aria-current="page" style="color: var(--couleur-texte)">CV</li>
+          </ol>
+        </nav>
 
-      <!-- Fil d'Ariane visible (correspond au BreadcrumbList JSON-LD) -->
-      <nav aria-label="Fil d'Ariane">
-        <ol style="list-style:none; padding:0; display:flex; gap:var(--espace-sm); font-size:var(--taille-sm); color:var(--couleur-texte-doux); margin-bottom:var(--espace-xl);">
-          <li><a href="index.html">Accueil</a></li>
-          <li aria-hidden="true" style="color:var(--couleur-bordure);">›</li>
-          <li aria-current="page" style="color:var(--couleur-texte);">CV</li>
-        </ol>
-      </nav>
+        <!-- H1 unique de la page -->
+        <h1>Curriculum Vitæ — Hugo Ogez</h1>
 
-      <!-- H1 unique de la page -->
-      <h1>Curriculum Vitæ — Hugo Ogez</h1>
+        <!-- Encart disponibilité : info clé visible immédiatement -->
+        <div class="cv-disponibilite" role="note" aria-label="Disponibilité">
+          <p>
+            <strong>Disponible en CDI</strong> — Bassin rennais (35) · À partir
+            d'<strong>octobre 2026</strong> ·
+            <a href="contact.html">Me contacter</a>
+          </p>
+        </div>
 
-      <!-- Encart disponibilité : info clé visible immédiatement -->
-      <div class="cv-disponibilite" role="note" aria-label="Disponibilité">
-        <p>
-          <strong>Disponible en CDI</strong> — Bassin rennais (35) · À partir d'<strong>octobre 2026</strong> ·
-          <a href="contact.html">Me contacter</a>
-        </p>
-      </div>
-
-      <!-- ----------------------------------------------------------
+        <!-- ----------------------------------------------------------
            GRILLE CV : sidebar gauche + contenu principal droite
            ---------------------------------------------------------- -->
-      <div class="cv-grille">
-
-        <!-- ==================== SIDEBAR ==================== -->
-        <aside class="cv-sidebar" aria-label="Informations complémentaires">
-
-          <!-- Contact -->
-          <div class="cv-sidebar-section">
-            <h2>Contact</h2>
-            <ul>
-              <li>
-                <strong>Email</strong>
-                <a href="mailto:zego.hugo@gmail.com" style="font-size:var(--taille-sm);">zego.hugo@gmail.com</a>
-              </li>
-              <li>
-                <strong>LinkedIn</strong>
-                <a href="https://www.linkedin.com/in/hugoogez/" target="_blank" rel="noopener noreferrer" style="font-size:var(--taille-sm);">linkedin.com/in/hugoogez</a>
-              </li>
-              <li>
-                <strong>GitHub</strong>
-                <a href="https://github.com/HugoOgez0712" target="_blank" rel="noopener noreferrer" style="font-size:var(--taille-sm);">HugoOgez0712</a>
-              </li>
-              <li>
-                <strong>Localisation</strong>
-                Thorigné-Fouillard (35)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Compétences techniques -->
-          <div class="cv-sidebar-section">
-            <h2>Compétences</h2>
-            <ul>
-              <li>SEO technique</li>
-              <li>Rédaction web SEO</li>
-              <li>GEO (IA générative)</li>
-              <li>Google Analytics 4</li>
-              <li>Google Search Console</li>
-              <li>Google Ads</li>
-              <li>Zapier</li>
-              <li>HTML5 / CSS3</li>
-              <li>JavaScript</li>
-              <li>Agile / Scrum</li>
-            </ul>
-          </div>
-
-          <!-- Langues -->
-          <div class="cv-sidebar-section">
-            <h2>Langues</h2>
-            <ul>
-              <li>
-                <strong>Français</strong>
-                Langue maternelle
-              </li>
-              <li>
-                <strong>Anglais — C1</strong>
-                TOEIC 975/990
-              </li>
-            </ul>
-          </div>
-
-          <!-- Certifications -->
-          <div class="cv-sidebar-section">
-            <h2>Certifications</h2>
-            <ul>
-              <li>
-                <strong>Google Analytics</strong>
-                En cours — juin 2026
-              </li>
-              <li>
-                <strong>Google Ads</strong>
-                En cours — juin 2026
-              </li>
-            </ul>
-          </div>
-
-        </aside>
-
-        <!-- ==================== CONTENU PRINCIPAL ==================== -->
-        <div class="cv-contenu">
-
-          <!-- ---- EXPÉRIENCE PROFESSIONNELLE ---- -->
-          <section aria-labelledby="titre-experience">
-            <h2 id="titre-experience">Expérience professionnelle</h2>
-
-            <!-- Expérience 1 : Delta Dore -->
-            <article class="cv-entree">
-              <div class="cv-entree__en-tete">
-                <h3 class="cv-entree__titre">Alternant marketing digital</h3>
-                <span class="cv-entree__periode">
-                  <time datetime="2024-09">Sept. 2024</time> –
-                  <time datetime="2026-09">Sept. 2026</time>
-                </span>
-              </div>
-              <p class="cv-entree__lieu">Delta Dore · Cesson-Sévigné (35)</p>
+        <div class="cv-grille">
+          <!-- ==================== SIDEBAR ==================== -->
+          <aside class="cv-sidebar" aria-label="Informations complémentaires">
+            <!-- Contact -->
+            <div class="cv-sidebar-section">
+              <h2>Contact</h2>
               <ul>
-                <li>SEO technique : audits, optimisations on-page, suivi des positions via Google Search Console</li>
-                <li>Rédaction d'articles de blog optimisés SEO et GEO</li>
-                <li>Gestion et optimisation de campagnes Google Ads</li>
-                <li>Analyse de performance via Google Analytics 4 (segments, entonnoirs, rapports)</li>
-                <li>Automatisation de workflows métiers avec Zapier</li>
-                <li>Gestion du catalogue produits dans le PIM (système de gestion de l'information produit)</li>
-                <li>Utilisation quotidienne de l'IA générative pour la production de contenu et la recherche</li>
+                <li>
+                  <strong>Email</strong>
+                  <a
+                    href="mailto:zego.hugo@gmail.com"
+                    style="font-size: var(--taille-sm)"
+                    >zego.hugo@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <strong>LinkedIn</strong>
+                  <a
+                    href="https://www.linkedin.com/in/hugoogez/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="font-size: var(--taille-sm)"
+                    >linkedin.com/in/hugoogez</a
+                  >
+                </li>
+                <li>
+                  <strong>GitHub</strong>
+                  <a
+                    href="https://github.com/HugoOgez0712"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="font-size: var(--taille-sm)"
+                    >HugoOgez0712</a
+                  >
+                </li>
+                <li>
+                  <strong>Localisation</strong>
+                  Thorigné-Fouillard (35)
+                </li>
               </ul>
-              <div class="tags" style="margin-top:var(--espace-md);">
-                <span class="tag">SEO</span>
-                <span class="tag">Google Ads</span>
-                <span class="tag">GA4</span>
-                <span class="tag">Zapier</span>
-                <span class="tag">Rédaction</span>
-                <span class="tag">GEO</span>
-              </div>
-            </article>
+            </div>
 
-            <!-- Expérience 2 : Apizee -->
-            <article class="cv-entree">
-              <div class="cv-entree__en-tete">
-                <h3 class="cv-entree__titre">Développeur front-end &amp; Scrum Master</h3>
-                <span class="cv-entree__periode">
-                  <time datetime="2022">2022</time> –
-                  <time datetime="2024">2024</time>
-                </span>
-              </div>
-              <p class="cv-entree__lieu">Apizee · Rennes (35)</p>
+            <!-- Compétences techniques -->
+            <div class="cv-sidebar-section">
+              <h2>Compétences</h2>
               <ul>
-                <li>Développement d'interfaces front-end en HTML, CSS et JavaScript</li>
-                <li>Coordination d'une équipe de cinq prestataires externes</li>
-                <li>Animation des cérémonies Agile : sprint planning, daily stand-up, rétrospective, review</li>
-                <li>Suivi et livraison des sprints, gestion du backlog produit</li>
-                <li>Collaboration avec les équipes design et back-end</li>
+                <li>SEO technique</li>
+                <li>Rédaction web SEO</li>
+                <li>GEO (IA générative)</li>
+                <li>Google Analytics 4</li>
+                <li>Google Search Console</li>
+                <li>Google Ads</li>
+                <li>Zapier</li>
+                <li>HTML5 / CSS3</li>
+                <li>JavaScript</li>
+                <li>Agile / Scrum</li>
               </ul>
-              <div class="tags" style="margin-top:var(--espace-md);">
-                <span class="tag">HTML/CSS</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Scrum Master</span>
-                <span class="tag">Agile</span>
-              </div>
-            </article>
+            </div>
 
-          </section>
+            <!-- Langues -->
+            <div class="cv-sidebar-section">
+              <h2>Langues</h2>
+              <ul>
+                <li>
+                  <strong>Français</strong>
+                  Langue maternelle
+                </li>
+                <li>
+                  <strong>Anglais — C1</strong>
+                  TOEIC 975/990
+                </li>
+              </ul>
+            </div>
 
-          <!-- ---- FORMATION ---- -->
-          <section aria-labelledby="titre-formation">
-            <h2 id="titre-formation">Formation</h2>
+            <!-- Certifications -->
+            <div class="cv-sidebar-section">
+              <h2>Certifications</h2>
+              <ul>
+                <li>
+                  <strong>Google Analytics</strong>
+                  En cours — juin 2026
+                </li>
+                <li>
+                  <strong>Google Ads</strong>
+                  En cours — juin 2026
+                </li>
+              </ul>
+            </div>
+          </aside>
 
-            <!-- Formation 1 : École 301 -->
-            <article class="cv-entree">
-              <div class="cv-entree__en-tete">
-                <h3 class="cv-entree__titre">Bachelor Marketing Digital</h3>
-                <span class="cv-entree__periode">
-                  <time datetime="2024">2024</time> –
-                  <time datetime="2026">2026</time>
-                </span>
-              </div>
-              <p class="cv-entree__lieu">École 301 · Cesson-Sévigné (35) — en alternance</p>
-              <p style="font-size:var(--taille-sm); color:var(--couleur-texte-doux);">
-                Formation en alternance couvrant le marketing digital, le SEO/SEA, la stratégie
-                de contenu, l'analyse de données et les outils de marketing automation.
-              </p>
-            </article>
+          <!-- ==================== CONTENU PRINCIPAL ==================== -->
+          <div class="cv-contenu">
+            <!-- ---- EXPÉRIENCE PROFESSIONNELLE ---- -->
+            <section aria-labelledby="titre-experience">
+              <h2 id="titre-experience">Expérience professionnelle</h2>
 
-            <!-- Formation 2 : O'Clock -->
-            <article class="cv-entree">
-              <div class="cv-entree__en-tete">
-                <h3 class="cv-entree__titre">Formation développeur front-end</h3>
-                <span class="cv-entree__periode">
-                  <time datetime="2022">2022</time>
-                </span>
-              </div>
-              <p class="cv-entree__lieu">O'Clock · Formation en ligne</p>
-              <p style="font-size:var(--taille-sm); color:var(--couleur-texte-doux);">
-                Formation intensive : HTML5, CSS3, JavaScript, bases du développement web moderne.
-              </p>
-            </article>
+              <!-- Expérience 1 : Delta Dore -->
+              <article class="cv-entree">
+                <div class="cv-entree__en-tete">
+                  <h3 class="cv-entree__titre">Alternant marketing digital</h3>
+                  <span class="cv-entree__periode">
+                    <time datetime="2024-09">Sept. 2024</time> –
+                    <time datetime="2026-09">Sept. 2026</time>
+                  </span>
+                </div>
+                <p class="cv-entree__lieu">Delta Dore · Cesson-Sévigné (35)</p>
+                <ul>
+                  <li>
+                    SEO technique : audits, optimisations on-page, suivi des
+                    positions via Google Search Console
+                  </li>
+                  <li>Rédaction d'articles de blog optimisés SEO et GEO</li>
+                  <li>Gestion et optimisation de campagnes Google Ads</li>
+                  <li>
+                    Analyse de performance via Google Analytics 4 (segments,
+                    entonnoirs, rapports)
+                  </li>
+                  <li>Automatisation de workflows métiers avec Zapier</li>
+                  <li>
+                    Gestion du catalogue produits dans le PIM (système de
+                    gestion de l'information produit)
+                  </li>
+                  <li>
+                    Utilisation quotidienne de l'IA générative pour la
+                    production de contenu et la recherche
+                  </li>
+                </ul>
+                <div class="tags" style="margin-top: var(--espace-md)">
+                  <span class="tag">SEO</span>
+                  <span class="tag">Google Ads</span>
+                  <span class="tag">GA4</span>
+                  <span class="tag">Zapier</span>
+                  <span class="tag">Rédaction</span>
+                  <span class="tag">GEO</span>
+                </div>
+              </article>
 
-            <!-- Formation 3 : Rennes 2 -->
-            <article class="cv-entree">
-              <div class="cv-entree__en-tete">
-                <h3 class="cv-entree__titre">Master 2 Lettres Modernes</h3>
-                <span class="cv-entree__periode">Obtenu</span>
-              </div>
-              <p class="cv-entree__lieu">Université Rennes 2 · Rennes (35)</p>
-              <p style="font-size:var(--taille-sm); color:var(--couleur-texte-doux);">
-                Expertise en analyse textuelle, rédaction, argumentation et culture générale.
-                Fondation solide pour la rédaction web et la stratégie éditoriale.
-              </p>
-            </article>
+              <!-- Expérience 2 : Apizee -->
+              <article class="cv-entree">
+                <div class="cv-entree__en-tete">
+                  <h3 class="cv-entree__titre">
+                    Développeur front-end &amp; Scrum Master
+                  </h3>
+                  <span class="cv-entree__periode">
+                    <time datetime="2022">2022</time> –
+                    <time datetime="2024">2024</time>
+                  </span>
+                </div>
+                <p class="cv-entree__lieu">Apizee · Rennes (35)</p>
+                <ul>
+                  <li>
+                    Développement d'interfaces front-end en HTML, CSS et
+                    JavaScript
+                  </li>
+                  <li>
+                    Coordination d'une équipe de cinq prestataires externes
+                  </li>
+                  <li>
+                    Animation des cérémonies Agile : sprint planning, daily
+                    stand-up, rétrospective, review
+                  </li>
+                  <li>
+                    Suivi et livraison des sprints, gestion du backlog produit
+                  </li>
+                  <li>Collaboration avec les équipes design et back-end</li>
+                </ul>
+                <div class="tags" style="margin-top: var(--espace-md)">
+                  <span class="tag">HTML/CSS</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Scrum Master</span>
+                  <span class="tag">Agile</span>
+                </div>
+              </article>
+            </section>
 
-          </section>
+            <!-- ---- FORMATION ---- -->
+            <section aria-labelledby="titre-formation">
+              <h2 id="titre-formation">Formation</h2>
 
-        </div><!-- /cv-contenu -->
+              <!-- Formation 1 : École 301 -->
+              <article class="cv-entree">
+                <div class="cv-entree__en-tete">
+                  <h3 class="cv-entree__titre">Bachelor Marketing Digital</h3>
+                  <span class="cv-entree__periode">
+                    <time datetime="2024">2024</time> –
+                    <time datetime="2026">2026</time>
+                  </span>
+                </div>
+                <p class="cv-entree__lieu">
+                  École 301 · Cesson-Sévigné (35) — en alternance
+                </p>
+                <p
+                  style="
+                    font-size: var(--taille-sm);
+                    color: var(--couleur-texte-doux);
+                  "
+                >
+                  Formation en alternance couvrant le marketing digital, le
+                  SEO/SEA, la stratégie de contenu, l'analyse de données et les
+                  outils de marketing automation.
+                </p>
+              </article>
 
-      </div><!-- /cv-grille -->
+              <!-- Formation 2 : O'Clock -->
+              <article class="cv-entree">
+                <div class="cv-entree__en-tete">
+                  <h3 class="cv-entree__titre">
+                    Formation développeur front-end
+                  </h3>
+                  <span class="cv-entree__periode">
+                    <time datetime="2022">2022</time>
+                  </span>
+                </div>
+                <p class="cv-entree__lieu">O'Clock · Formation en ligne</p>
+                <p
+                  style="
+                    font-size: var(--taille-sm);
+                    color: var(--couleur-texte-doux);
+                  "
+                >
+                  Formation intensive : HTML5, CSS3, JavaScript, bases du
+                  développement web moderne.
+                </p>
+              </article>
 
-    </div><!-- /conteneur -->
-  </main>
+              <!-- Formation 3 : Rennes 2 -->
+              <article class="cv-entree">
+                <div class="cv-entree__en-tete">
+                  <h3 class="cv-entree__titre">Master 2 Lettres Modernes</h3>
+                  <span class="cv-entree__periode">Obtenu</span>
+                </div>
+                <p class="cv-entree__lieu">Université Rennes 2 · Rennes (35)</p>
+                <p
+                  style="
+                    font-size: var(--taille-sm);
+                    color: var(--couleur-texte-doux);
+                  "
+                >
+                  Expertise en analyse textuelle, rédaction, argumentation et
+                  culture générale. Fondation solide pour la rédaction web et la
+                  stratégie éditoriale.
+                </p>
+              </article>
+            </section>
+          </div>
+          <!-- /cv-contenu -->
+        </div>
+        <!-- /cv-grille -->
+      </div>
+      <!-- /conteneur -->
+    </main>
 
-  <!-- ============================================================
+    <!-- ============================================================
        PIED DE PAGE
        ============================================================ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="conteneur conteneur--large">
+    <footer class="site-footer" role="contentinfo">
+      <div class="conteneur conteneur--large">
+        <p>
+          &copy; <time datetime="2026">2026</time> Hugo Ogez ·
+          <a href="mailto:zego.hugo@gmail.com">zego.hugo@gmail.com</a>
+        </p>
 
-      <p>
-        &copy; <time datetime="2026">2026</time> Hugo Ogez ·
-        <a href="mailto:zego.hugo@gmail.com">zego.hugo@gmail.com</a>
-      </p>
+        <ul class="footer-liens" role="list">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/hugoogez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/HugoOgez0712"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+          <li><a href="sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </footer>
 
-      <ul class="footer-liens" role="list">
-        <li><a href="https://www.linkedin.com/in/hugoogez/"  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/HugoOgez0712"        target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="sitemap.xml">Sitemap</a></li>
-      </ul>
+    <!-- Menu mobile — même script que index.html -->
+    <script>
+      var boutonMenu = document.querySelector(".menu-toggle");
+      var navMenu = document.querySelector(".site-nav");
 
-    </div>
-  </footer>
-
-  <!-- Menu mobile — même script que index.html -->
-  <script>
-    var boutonMenu = document.querySelector('.menu-toggle');
-    var navMenu    = document.querySelector('.site-nav');
-
-    boutonMenu.addEventListener('click', function () {
-      var estOuvert = navMenu.classList.toggle('est-ouvert');
-      boutonMenu.setAttribute('aria-expanded', estOuvert);
-    });
-  </script>
-
-</body>
+      boutonMenu.addEventListener("click", function () {
+        var estOuvert = navMenu.classList.toggle("est-ouvert");
+        boutonMenu.setAttribute("aria-expanded", estOuvert);
+      });
+    </script>
+  </body>
 </html>
