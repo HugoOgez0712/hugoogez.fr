@@ -141,19 +141,8 @@
       }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CKZKR3BQP7"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-CKZKR3BQP7");
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKZKR3BQP7"></script>
+    <script src="scripts/analytics.js"></script>
   </head>
 
   <body>
@@ -221,15 +210,13 @@
             <strong>SEO technique</strong>, rédaction web et
             <strong>GEO (Generative Engine Optimization)</strong>. Il est
             disponible pour un
-            <strong>CDI dans le bassin rennais en octobre 2026</strong>.
+            <strong>CDI dans le bassin rennais en septembre 2026</strong>.
           </p>
 
           <p>
-            Avant le marketing digital, Hugo Ogez a travaillé deux ans comme
-            développeur front-end et Scrum Master chez Apizee, où il coordonnait
-            une équipe de cinq prestataires. Il est titulaire d'un Master 2
-            Lettres Modernes (Rennes 2) et d'une formation développeur front-end
-            (O'Clock). Son anglais est C1 (TOEIC 975).
+            Avant le marketing digital, J'ai travaillé deux ans comme
+            développeur front-end chez Apizee, où il coordonnait une équipe de
+            cinq prestataires.
           </p>
 
           <p>
@@ -237,7 +224,6 @@
             Ads, Zapier, HTML, CSS, IA générative.
           </p>
 
-          <!-- Call-to-action recruteur -->
           <div class="tags" style="margin-top: var(--espace-xl)">
             <a href="cv.html" class="bouton">Voir le CV</a>
             <a href="contact.html" class="bouton bouton--secondaire"
@@ -248,10 +234,6 @@
 
         <hr class="separateur" />
 
-        <!-- ----------------------------------------------------------
-           SECTION COMPÉTENCES CLÉS
-           Entités répétées naturellement pour le SEO et le GEO
-           ---------------------------------------------------------- -->
         <section class="section" aria-labelledby="titre-competences">
           <h2 id="titre-competences">Compétences</h2>
 
@@ -416,16 +398,6 @@
        JAVASCRIPT — menu mobile uniquement
        ~15 lignes, zéro dépendance externe
        ============================================================ -->
-    <script>
-      /* Récupère le bouton hamburger et la liste de navigation */
-      var boutonMenu = document.querySelector(".menu-toggle");
-      var navMenu = document.querySelector(".site-nav");
-
-      /* Au clic sur le hamburger : bascule la classe et l'attribut aria */
-      boutonMenu.addEventListener("click", function () {
-        var estOuvert = navMenu.classList.toggle("est-ouvert");
-        boutonMenu.setAttribute("aria-expanded", estOuvert);
-      });
-    </script>
+    <script src="scripts/menu.js"></script>
   </body>
 </html>

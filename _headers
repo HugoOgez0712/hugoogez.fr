@@ -1,0 +1,27 @@
+# Fichier _headers — Netlify
+# Placé à la racine du projet, il configure automatiquement les headers HTTP
+# sur toutes les pages lors du déploiement.
+# Doc : https://docs.netlify.com/routing/headers/
+
+/*
+  # Empêche l'intégration du site dans une <iframe> externe (clickjacking)
+  X-Frame-Options: SAMEORIGIN
+
+  # Empêche les navigateurs de deviner le type MIME des fichiers (MIME sniffing)
+  X-Content-Type-Options: nosniff
+
+  # Contrôle ce qui est transmis dans l'en-tête Referer lors des clics sortants
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Désactive les APIs navigateur non utilisées sur ce site
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Content Security Policy :
+  # - default-src 'self'          : tout le contenu vient du domaine du site
+  # - script-src                  : autorise uniquement les scripts du site + Google Analytics
+  #                                 'unsafe-inline' supprimé — tous les scripts sont dans des fichiers externes
+  # - style-src 'unsafe-inline'   : conservé car les pages utilisent des <style> inline
+  # - img-src data:               : autorise les éventuelles images base64
+  # - connect-src                 : autorise les requêtes réseau vers Google Analytics
+  # - frame-ancestors 'none'      : bloque l'intégration en iframe (renforce X-Frame-Options)
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://www.google-analytics.com data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://region1.analytics.google.com; frame-ancestors 'none'

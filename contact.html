@@ -218,19 +218,8 @@
       }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CKZKR3BQP7"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-CKZKR3BQP7");
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKZKR3BQP7"></script>
+    <script src="scripts/analytics.js"></script>
   </head>
 
   <body>
@@ -303,8 +292,8 @@
 
         <p>
           Hugo Ogez, chargé de marketing digital spécialisé SEO et GEO, basé à
-          Thorigné-Fouillard (35). Actuellement en alternance chez Delta Dore
-          jusqu'en septembre 2026. Open à toute opportunité CDI dans le bassin
+          Thorigné-Fouillard. Actuellement en alternance chez Delta Dore
+          jusqu'en septembre 2026. Ouvert à toute opportunité CDI dans le bassin
           rennais.
         </p>
 
@@ -392,7 +381,6 @@
             </form>
           </section>
 
-          <!-- ==================== INFOS DIRECTES ==================== -->
           <aside class="contact-infos" aria-label="Coordonnées directes">
             <h2>Coordonnées</h2>
 
@@ -484,14 +472,6 @@
     </footer>
 
     <!-- Menu mobile -->
-    <script>
-      var boutonMenu = document.querySelector(".menu-toggle");
-      var navMenu = document.querySelector(".site-nav");
-
-      boutonMenu.addEventListener("click", function () {
-        var estOuvert = navMenu.classList.toggle("est-ouvert");
-        boutonMenu.setAttribute("aria-expanded", estOuvert);
-      });
-    </script>
+    <script src="scripts/menu.js"></script>
   </body>
 </html>
